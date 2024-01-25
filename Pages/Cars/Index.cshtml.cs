@@ -12,7 +12,7 @@ namespace FribergCarsRazor.Pages.Cars
 {
     public class IndexModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
 
         //public IndexModel(ApplicationDbContext context)
         //{

@@ -11,18 +11,26 @@ namespace FribergCarsRazor.Pages.Customers
 {
     public class IndexModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
 
-        public IndexModel(ApplicationDbContext context)
+        //public IndexModel(ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly ICustomer customerRepo;
+
+        public IndexModel(ICustomer customerRepo)
         {
-            _context = context;
+            this.customerRepo = customerRepo;
         }
 
         public IList<Customer> Customer { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Customer = await _context.Customers.ToListAsync();
+            Customer = await Task.FromResult(customerRepo.GetAll().ToList());
+            /*await _context.Customers.ToListAsync();*/
         }
     }
 }
