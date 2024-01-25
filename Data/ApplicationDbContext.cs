@@ -17,5 +17,6 @@ namespace FribergCarsRazor
         public DbSet<Car> Cars { get; set; } = default!;
         public DbSet<Customer> Customers { get; set; } = default!;
         public DbSet<Admin> Admins { get; set; } = default!;
+        public DbSet<Booking> Bookings { get; set; } = default!;
     }
 }
