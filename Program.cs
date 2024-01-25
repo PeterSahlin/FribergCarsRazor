@@ -13,7 +13,7 @@ namespace FribergCarsRazor
                 options.UseSqlServer(builder.Configuration.GetConnectionString("ApplicationDbContext") ?? throw new InvalidOperationException("Connection string 'ApplicationDbContext' not found.")));
 
             builder.Services.AddTransient<ICar, CarRepository>();
-            //builder.Services.AddTransient<ICustomer, CustomerRepository>();
+            builder.Services.AddTransient<ICustomer, CustomerRepository>();
 
 
 

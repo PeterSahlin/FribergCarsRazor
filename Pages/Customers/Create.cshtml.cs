@@ -11,11 +11,17 @@ namespace FribergCarsRazor.Pages.Customers
 {
     public class CreateModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
 
-        public CreateModel(ApplicationDbContext context)
+        //public CreateModel(ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly ICustomer customerRepo;
+        public CreateModel(ICustomer customerRepo)
         {
-            _context = context;
+            this.customerRepo = customerRepo;
         }
 
         public IActionResult OnGet()
@@ -34,8 +40,9 @@ namespace FribergCarsRazor.Pages.Customers
                 return Page();
             }
 
-            _context.Customers.Add(Customer);
-            await _context.SaveChangesAsync();
+            customerRepo.CreateCustomer(Customer);
+            //_context.Customers.Add(Customer);
+            //await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
