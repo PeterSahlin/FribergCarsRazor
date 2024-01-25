@@ -14,16 +14,24 @@ namespace FribergCarsRazor.Pages.Cars
     {
         private readonly ApplicationDbContext _context;
 
-        public IndexModel(ApplicationDbContext context)
+        //public IndexModel(ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly ICar carRepo;
+
+        public IndexModel(ICar carRepo)
         {
-            _context = context;
+            this.carRepo = carRepo;
         }
 
         public IList<Car> Car { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Car = await _context.Cars.ToListAsync();
+            Car = await Task.FromResult(carRepo.GetAll().ToList());
+                /*await _context.Cars.ToListAsync();*/
         }
     }
 }
