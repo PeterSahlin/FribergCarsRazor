@@ -12,24 +12,33 @@ namespace FribergCarsRazor.Pages.Cars
 {
     public class DeleteModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
 
-        public DeleteModel(ApplicationDbContext context)
+        //public DeleteModel(ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly ICar carRepo;
+
+        public DeleteModel(ICar carRepo)
         {
-            _context = context;
+            this.carRepo = carRepo;
         }
 
         [BindProperty]
         public Car Car { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var car = await _context.Cars.FirstOrDefaultAsync(m => m.CarId == id);
+            //var car = await _context.Cars.FirstOrDefaultAsync(m => m.CarId == id);
+
+            var car = carRepo.GetById(id);
 
             if (car == null)
             {
@@ -42,19 +51,22 @@ namespace FribergCarsRazor.Pages.Cars
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var car = await _context.Cars.FindAsync(id);
+            //var car = await _context.Cars.FindAsync(id);
+            var car = carRepo.GetById(id);
+
             if (car != null)
             {
                 Car = car;
-                _context.Cars.Remove(Car);
-                await _context.SaveChangesAsync();
+                carRepo.DeleteCar(car);
+                //_context.Cars.Remove(Car);
+                //await _context.SaveChangesAsync();
             }
 
             return RedirectToPage("./Index");
