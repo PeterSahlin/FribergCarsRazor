@@ -12,9 +12,9 @@ namespace FribergCarsRazor.Pages.Cars
 {
     public class CreateModel : PageModel
     {
-        private readonly FribergCarsRazor.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public CreateModel(FribergCarsRazor.ApplicationDbContext context)
+        public CreateModel(ApplicationDbContext context)
         {
             _context = context;
         }

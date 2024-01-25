@@ -12,9 +12,9 @@ namespace FribergCarsRazor.Pages.Cars
 {
     public class DeleteModel : PageModel
     {
-        private readonly FribergCarsRazor.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public DeleteModel(FribergCarsRazor.ApplicationDbContext context)
+        public DeleteModel(ApplicationDbContext context)
         {
             _context = context;
         }

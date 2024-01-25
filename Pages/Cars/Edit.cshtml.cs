@@ -13,9 +13,9 @@ namespace FribergCarsRazor.Pages.Cars
 {
     public class EditModel : PageModel
     {
-        private readonly FribergCarsRazor.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EditModel(FribergCarsRazor.ApplicationDbContext context)
+        public EditModel(ApplicationDbContext context)
         {
             _context = context;
         }
