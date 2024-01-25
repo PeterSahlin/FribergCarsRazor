@@ -12,23 +12,31 @@ namespace FribergCarsRazor.Pages.Admins
 {
     public class DetailsModel : PageModel
     {
-        private readonly FribergCarsRazor.ApplicationDbContext _context;
+        //private readonly FribergCarsRazor.ApplicationDbContext _context;
 
-        public DetailsModel(FribergCarsRazor.ApplicationDbContext context)
+        //public DetailsModel(FribergCarsRazor.ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly IAdmin adminRepo;
+
+        public DetailsModel(IAdmin adminRepo)
         {
-            _context = context;
+            this.adminRepo = adminRepo;
         }
 
         public Admin Admin { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var admin = await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);
+            //var admin = await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);
+            var admin = adminRepo.GetById(id);
             if (admin == null)
             {
                 return NotFound();
