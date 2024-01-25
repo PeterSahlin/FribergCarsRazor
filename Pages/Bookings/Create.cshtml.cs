@@ -12,11 +12,17 @@ namespace FribergCarsRazor.Pages.Bookings
 {
     public class CreateModel : PageModel
     {
-        private readonly FribergCarsRazor.ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
 
-        public CreateModel(FribergCarsRazor.ApplicationDbContext context)
+        //public CreateModel(ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly IBooking bookingRepo;
+        public CreateModel(IBooking bookingRepo)
         {
-            _context = context;
+            this.bookingRepo = bookingRepo;
         }
 
         public IActionResult OnGet()
@@ -35,8 +41,10 @@ namespace FribergCarsRazor.Pages.Bookings
                 return Page();
             }
 
-            _context.Bookings.Add(Booking);
-            await _context.SaveChangesAsync();
+            bookingRepo.CreateBooking(Booking);
+
+            //_context.Bookings.Add(Booking);
+            //await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

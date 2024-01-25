@@ -12,24 +12,31 @@ namespace FribergCarsRazor.Pages.Bookings
 {
     public class DeleteModel : PageModel
     {
-        private readonly FribergCarsRazor.ApplicationDbContext _context;
+        //private readonly FribergCarsRazor.ApplicationDbContext _context;
 
-        public DeleteModel(FribergCarsRazor.ApplicationDbContext context)
+        //public DeleteModel(FribergCarsRazor.ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly IBooking bookingRepo;
+        public DeleteModel(IBooking bookingRepo)
         {
-            _context = context;
+            this.bookingRepo = bookingRepo;
         }
 
         [BindProperty]
         public Booking Booking { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var booking = await _context.Bookings.FirstOrDefaultAsync(m => m.BookingId == id);
+            var booking = bookingRepo.GetById(id);
+                /*await _context.Bookings.FirstOrDefaultAsync(m => m.BookingId == id);*/
 
             if (booking == null)
             {
@@ -42,19 +49,21 @@ namespace FribergCarsRazor.Pages.Bookings
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var booking = await _context.Bookings.FindAsync(id);
+            var booking = bookingRepo.GetById(id);
+            /*await _context.Bookings.FindAsync(id);*/
             if (booking != null)
             {
                 Booking = booking;
-                _context.Bookings.Remove(Booking);
-                await _context.SaveChangesAsync();
+                bookingRepo.DeleteBooking(booking);
+                //_context.Bookings.Remove(Booking);
+                //await _context.SaveChangesAsync();
             }
 
             return RedirectToPage("./Index");

@@ -15,7 +15,7 @@ namespace FribergCarsRazor
             builder.Services.AddTransient<ICar, CarRepository>();
             builder.Services.AddTransient<ICustomer, CustomerRepository>();
             builder.Services.AddTransient<IAdmin, AdminRepository>();
-            //builder.Services.AddTransient<IBooking, BookingRepository>();
+            builder.Services.AddTransient<IBooking, BookingRepository>();
 
 
             // Add services to the container.

@@ -12,18 +12,25 @@ namespace FribergCarsRazor.Pages.Bookings
 {
     public class IndexModel : PageModel
     {
-        private readonly FribergCarsRazor.ApplicationDbContext _context;
 
-        public IndexModel(FribergCarsRazor.ApplicationDbContext context)
+        //private readonly ApplicationDbContext _context;
+
+        //public IndexModel(ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly IBooking bookingRepo;
+        public IndexModel(IBooking bookingRepo)
         {
-            _context = context;
+            this.bookingRepo = bookingRepo;
         }
 
         public IList<Booking> Booking { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Booking = await _context.Bookings.ToListAsync();
+            Booking = await Task.FromResult(bookingRepo.GetAll().ToList());
         }
     }
 }

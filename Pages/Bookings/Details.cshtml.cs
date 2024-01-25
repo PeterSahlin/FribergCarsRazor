@@ -12,23 +12,30 @@ namespace FribergCarsRazor.Pages.Bookings
 {
     public class DetailsModel : PageModel
     {
-        private readonly FribergCarsRazor.ApplicationDbContext _context;
+        //private readonly FribergCarsRazor.ApplicationDbContext _context;
 
-        public DetailsModel(FribergCarsRazor.ApplicationDbContext context)
+        //public DetailsModel(FribergCarsRazor.ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly IBooking bookingRepo;
+        public DetailsModel(IBooking bookingRepo)
         {
-            _context = context;
+            this.bookingRepo = bookingRepo;
         }
 
         public Booking Booking { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var booking = await _context.Bookings.FirstOrDefaultAsync(m => m.BookingId == id);
+            var booking =  bookingRepo.GetById(id);
+            /*await _context.Bookings.FirstOrDefaultAsync(m => m.BookingId == id);*/
             if (booking == null)
             {
                 return NotFound();
