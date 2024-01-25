@@ -12,18 +12,25 @@ namespace FribergCarsRazor.Pages.Admins
 {
     public class IndexModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
 
-        public IndexModel(ApplicationDbContext context)
+        //public IndexModel(ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly IAdmin adminRepo;
+
+        public IndexModel(IAdmin adminRepo)
         {
-            _context = context;
+            this.adminRepo = adminRepo;
         }
 
         public IList<Admin> Admin { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Admin = await _context.Admins.ToListAsync();
+            Admin = await Task.FromResult(adminRepo.GetAll().ToList());
         }
     }
 }

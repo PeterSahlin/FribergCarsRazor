@@ -13,24 +13,32 @@ namespace FribergCarsRazor.Pages.Admins
 {
     public class EditModel : PageModel
     {
-        private readonly FribergCarsRazor.ApplicationDbContext _context;
+        //private readonly FribergCarsRazor.ApplicationDbContext _context;
 
-        public EditModel(FribergCarsRazor.ApplicationDbContext context)
+        //public EditModel(FribergCarsRazor.ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly IAdmin adminRepo;
+
+        public EditModel(IAdmin adminRepo)
         {
-            _context = context;
+            this.adminRepo = adminRepo;
         }
 
         [BindProperty]
         public Admin Admin { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var admin =  await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);
+            //var admin =  await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);
+            var admin = adminRepo.GetById(id);
             if (admin == null)
             {
                 return NotFound();
@@ -48,30 +56,31 @@ namespace FribergCarsRazor.Pages.Admins
                 return Page();
             }
 
-            _context.Attach(Admin).State = EntityState.Modified;
+            adminRepo.EditAdmin(Admin);
+            //_context.Attach(Admin).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AdminExists(Admin.AdminId))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            //try
+            //{
+            //    await _context.SaveChangesAsync();
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!AdminExists(Admin.AdminId))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
 
             return RedirectToPage("./Index");
         }
 
-        private bool AdminExists(int id)
-        {
-            return _context.Admins.Any(e => e.AdminId == id);
-        }
+        //private bool AdminExists(int id)
+        //{
+        //    return _context.Admins.Any(e => e.AdminId == id);
+        //}
     }
 }
