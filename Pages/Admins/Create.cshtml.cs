@@ -12,11 +12,18 @@ namespace FribergCarsRazor.Pages.Admins
 {
     public class CreateModel : PageModel
     {
-        private readonly FribergCarsRazor.ApplicationDbContext _context;
+        //private readonly FribergCarsRazor.ApplicationDbContext _context;
 
-        public CreateModel(FribergCarsRazor.ApplicationDbContext context)
+        //public CreateModel(FribergCarsRazor.ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly IAdmin adminRepo;
+
+        public CreateModel(IAdmin adminRepo)
         {
-            _context = context;
+            this.adminRepo = adminRepo;
         }
 
         public IActionResult OnGet()
@@ -35,8 +42,9 @@ namespace FribergCarsRazor.Pages.Admins
                 return Page();
             }
 
-            _context.Admins.Add(Admin);
-            await _context.SaveChangesAsync();
+            adminRepo.CreateAdmin(Admin);
+            //_context.Admins.Add(Admin);
+            //await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
