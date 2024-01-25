@@ -12,23 +12,31 @@ namespace FribergCarsRazor.Pages.Cars
 {
     public class DetailsModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
 
-        public DetailsModel(ApplicationDbContext context)
+        //public DetailsModel(ApplicationDbContext context)
+        //{
+        //    _context = context;
+        //}
+
+        private readonly ICar carRepo;
+
+        public DetailsModel(ICar carRepo)
         {
-            _context = context;
+            this.carRepo = carRepo;
         }
 
         public Car Car { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var car = await _context.Cars.FirstOrDefaultAsync(m => m.CarId == id);
+            var car = carRepo.GetById(id);
+            /*await _context.Cars.FirstOrDefaultAsync(m => m.CarId == id);*/
             if (car == null)
             {
                 return NotFound();
