@@ -1,4 +1,4 @@
-html {
+/*html {
   font-size: 14px;
 }
 
@@ -19,4 +19,273 @@ html {
 
 body {
   margin-bottom: 60px;
+}*/
+
+:root {
+    --logoBlueBlack: #101f24;
+    --logoOrange: #FB8B24;
+    --logoYellow: #f8c43d;
+    --logoWhite: #fefdff;
+    --logoSilver: #9aa5ab;
+    --black: #000000;
+    /* Buttons */
+    --green: #006137;
+    --greenAlt: #01814a;
+    --red: #951D00;
+    --redAlt: #bb2500;
+    --gray: rgb(128, 128, 128);
+    --grayAlt: #434343;
+}
+
+body {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0;
+    font-family: Helvetica, sans-serif, Arial;
+    background-color: var(--logoBlueBlack);
+    color: var(--logoWhite);
+    text-align: center;
+}
+
+.main-header {
+    background-color: var(--black);
+    padding: 1em;
+    padding-bottom: 1em;
+}
+
+    .main-header h1 {
+        color: var(--logoWhite);
+        margin-left: 2%;
+        font-size: 3.5em;
+    }
+
+#main-logo {
+    width: 10%;
+}
+
+.main-header img, h1 {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/*Navigation menu*/
+.top-site-nav {
+    background-color: var(--logoSilver);
+    color: var(--black);
+    text-align: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-top: 0px;
+}
+
+    .top-site-nav a {
+        float: left;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        color: var(--black);
+    }
+
+.nav-links {
+    display: inline-block;
+    padding: .7em;
+}
+
+.top-site-nav :hover {
+    background-color: var(--logoYellow);
+    color: var(--black);
+}
+
+    .top-site-nav :hover a {
+        color: red;
+    }
+
+.page-header {
+}
+
+.site-footer {
+    background-color: var(--logoSilver);
+    color: var(--black);
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2%;
+    padding: 1%;
+}
+
+/*BUTTONS*/
+.standard-button, input[type="submit"] {
+    height: auto;
+    width: auto;
+    /*min-width:100px;*/
+    border-style: solid;
+    border-color: var(--black);
+    color: var(--black);
+    font-size: medium;
+    text-align: center;
+    padding: 0.5%;
+    border-radius: 10%;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+
+/*button colors*/
+.standard-button-color {
+    background-color: var(--logoYellow);
+}
+
+.function-button-color {
+    background-color: var(--logoSilver);
+}
+
+.negative-button-color {
+    background-color: var(--red);
+}
+
+.positive-button-color {
+    background-color: var(--green);
+}
+
+/* Hover button colors */
+.negative-button-color:hover {
+    background-color: var(--redAlt);
+}
+
+.positive-button-color:hover {
+    background-color: var(--greenAlt);
+}
+
+
+.standard-button-color:hover {
+    background-color: var(--logoOrange);
+    /*font-weight:600;*/
+}
+
+.function-button-color:hover {
+    background-color: var(--gray);
+}
+
+/*FORMS*/
+
+/* Textbox */
+input[type="text"], input[type="email"], input[type="password"] {
+    padding: 0.5%;
+    font-size: medium;
+    margin: 3px;
+    border: 1px solid var(--black);
+}
+
+    input[type="text"], input[type="email"], input[type="password"]:focus-within {
+        border: 2px solid var(--logoYellow);
+        outline: none;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"]:hover {
+        border: 2px solid var(--black);
+        outline: none;
+    }
+
+/*TABLES*/
+
+table {
+    border-style: solid;
+    border-color: var(--black);
+    border-width: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    width: 65%;
+    background-color: var(--logoWhite);
+    margin-bottom: 2%;
+    color: var(--black);
+}
+
+    table th {
+        background-color: var(--logoSilver);
+        height: 2%;
+        border-bottom: 1px solid var(--logoBlueBlack);
+        border-right: 1px solid var(--logoBlueBlack);
+        border-width: 1px;
+        text-align: center;
+        max-width: 200px; /* Justera detta värde efter ditt behov */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Visar ellipsis (...) om innehållet är för långt för att visas */
+    }
+
+    table td {
+        border-style: solid;
+        border-color: var(--black);
+        border-width: 1px;
+        border-bottom: 1px solid var(--black);
+        text-align: center;
+        word-wrap: break-word;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        padding-right: 1%;
+        padding-left: 1%;
+        overflow: hidden;
+        max-width: 400px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Visar ellipsis (...) om innehållet är för långt för att visas */
+    }
+
+        /*Id*/
+        /*table td:first-child {
+            min-width: 50px;
+        }*/
+
+        /*CarName*/
+        table td:first-child(2) {
+            min-width: 100px;
+        }
+        /*Seats*/
+        table td:nth-child(2) {
+            min-width: 30px;
+            /*text-align: center;*/
+        }
+        /*Price*/
+        table td:nth-child(3) {
+            min-width: 50px;
+            /* text-align: center;*/
+        }
+        /*Image*/
+        /*  table td:nth-child(4) {
+            text-align:center;
+        }*/
+        /*Edit*/
+        table td:nth-child(5) {
+            min-width: 20px;
+            /*text-align:center;*/
+        }
+
+/*.top-of-table-buttons {
+    width: 65%;
+    float: left;
+}*/
+
+min-width:200px;
+/*Links*/
+a:link, a:visited {
+    color: var(--black);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+
+a:hover {
+    color: var(--logoOrange);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:active {
+    color: var(--logoYellow);
+    background-color: transparent;
+    text-decoration: none;
 }

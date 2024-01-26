@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - FribergCarsRazor</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FribergCarsRazor.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
+    @* <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-page="/Index">FribergCarsRazor</a>
@@ -29,7 +29,33 @@
                 </div>
             </div>
         </nav>
+    </header> *@
+    <header>
+
+        @* Top of site *@
+        <div class="main-header">
+            @* Logo *@
+            <img src="~/friberg_logo.png" id="main-logo" />
+            @* Page title *@
+            <h1>Friberg Car Rentals</h1>
+        </div>
+        <nav>
+            <div class="top-site-nav">
+                <a class="nav-links" asp-area="" asp-page="/Index">Home</a>
+
+                <a class="nav-links" asp-area="" asp-page="/Cars/Index">Cars</a>
+
+                <a class="nav-links" asp-area="" asp-page="/Admins/Index">Admins</a>
+
+                <a class="nav-links" asp-area="" asp-page="/Customers/Index">Customers</a>
+
+                <a class="nav-links" asp-area="" asp-page="/Bookings/Index">Bookings</a>
+            </div>
+
+        </nav>
+
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
