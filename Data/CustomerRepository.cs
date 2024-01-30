@@ -44,9 +44,9 @@
         }
 
         //Find user in database from login entry
-        public Customer GetUserByUserNameAndPassword(string userName, string password)
+        public Customer GetUserByUserNameAndPassword(string email, string password)
         {
-            var customer = applicationDbContext.Customers.Where(u => u.UserName == userName && u.Password == password).FirstOrDefault();
+            var customer = applicationDbContext.Customers.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
             return customer;
 
 

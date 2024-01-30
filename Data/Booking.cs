@@ -8,6 +8,6 @@
         public DateTime EndDate { get; set; }
 
         public Customer Customer { get; set; }
-        public Car Car { get; set; }
+        public Car Car { get; set; }    //foreign key istället?
     }
 }
