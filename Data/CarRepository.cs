@@ -12,10 +12,11 @@
         //CRUD
 
         //Create
-        public void CreateCar(Car car)
+        public Task CreateCar(Car car)
         {
             applicationDbContext.Add(car);
-            applicationDbContext.SaveChanges();
+            return applicationDbContext.SaveChangesAsync();
+            
         }
 
         //Read
@@ -24,7 +25,7 @@
             return applicationDbContext.Cars.OrderBy(c => c.CarName);
         }
 
-        public Car GetById(int id)
+        public Car GetById(int id)                                                                      //return Task<Car>, await. FirsorDef asyncversion. 
         {
             return applicationDbContext.Cars.FirstOrDefault(c => c.CarId == id);
         }

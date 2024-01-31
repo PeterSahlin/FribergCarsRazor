@@ -1,23 +1,15 @@
 ﻿@page
-@model FribergCarsRazor.Pages.Cars.IndexModel
+@model FribergCarsRazor.Pages.Bookings.PickCarModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "PickCar";
 }
 
-<h1>Index</h1>
+<h1>PickCar</h1>
 
-
-   
-  @*   <div class="top-of-table-buttons">
-    <form>
-        <button asp-page="Create" type="submit" class="standard-button function-button-color">Create car</button>
-    </form>
-    <form>
-        <button asp-page="../Bookings/Login" type="submit" class="standard-button standard-button-color">Book car</button>
-    </form>
-</div> *@
-
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -49,14 +41,13 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                <img src="@item.Image" style="max-width:200px"/>
-                @* @Html.DisplayFor(modelItem => item.Image) *@
+                    <img src="@item.Image" style="max-width:200px" />
             </td>
-          @*   <td>
-                <a asp-page="../Bookings/Create" asp-route-id="@item.CarId">Create booking</a> |
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.CarId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.CarId">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.CarId">Delete</a>
-            </td> *@
+            </td>
         </tr>
 }
     </tbody>

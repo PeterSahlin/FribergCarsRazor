@@ -19,34 +19,55 @@ namespace FribergCarsRazor.Pages.Bookings
         //    _context = context;
         //}
 
-        private readonly IBooking bookingRepo;
-        public CreateModel(IBooking bookingRepo)
+       
+        private readonly ICustomer customerRepo;
+
+        public CreateModel(ICustomer customerRepo)
         {
-            this.bookingRepo = bookingRepo;
+            this.customerRepo = customerRepo;
         }
 
-        public IActionResult OnGet()
+        public Booking Booking { get; set; } = new Booking();
+        public Customer Customer { get; set; } = default!;
+
+        public IActionResult OnGet(int id)
         {
+
+            var loggedInCustomer = customerRepo.GetById(id);
+            //if (false)
+            //{
+            //  return  RedirectToPage("Login");
+            //}
+            //else
+            //{
+            Booking.Customer = loggedInCustomer;
             return Page();
+
+            //}
         }
 
-        [BindProperty]
-        public Booking Booking { get; set; } = default!;
+        //[BindProperty]
+        //public Booking Booking { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(Booking booking)
         {
+            var customer = customerRepo.GetById(booking.Customer.CustomerId);
+            booking.Customer = customer;
+
             if (!ModelState.IsValid)
+            {
+                return RedirectToPage("./PickCar", new { bookingData = booking });
+            }
+            else
             {
                 return Page();
             }
-
-            bookingRepo.CreateBooking(Booking);
+            //customerRepo.CreateBooking(booking);
 
             //_context.Bookings.Add(Booking);
             //await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
         }
     }
 }

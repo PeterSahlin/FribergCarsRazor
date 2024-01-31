@@ -18,6 +18,12 @@
             applicationDbContext.SaveChanges();
         }
 
+        //public void CreateBooking(Booking booking)
+        //{
+        //    applicationDbContext.Add(booking);
+        //    applicationDbContext.SaveChanges();
+        //}
+
         //Read
         public IEnumerable<Customer> GetAll()
         {

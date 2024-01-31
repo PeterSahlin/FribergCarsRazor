@@ -3,7 +3,7 @@
     public interface ICar
     {
         //Create
-        public void CreateCar(Car car);
+        public Task CreateCar(Car car);
         //Read
         Car GetById(int id);
         IEnumerable<Car> GetAll();
