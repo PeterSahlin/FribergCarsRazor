@@ -46,5 +46,28 @@ namespace FribergCarsRazor.Pages.Bookings
 
 
         }
+
+        public async Task<IActionResult> OnGetAfterBooking(int id)
+        {
+            var loggedInCustomer = customerRepo.GetById(id);
+
+            /*await _context.Customers.ToListAsync();*/
+            if (loggedInCustomer == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                Customer = loggedInCustomer;
+            }
+            return Page();
+
+
+
+        }
+
+
+
+
     }
 }

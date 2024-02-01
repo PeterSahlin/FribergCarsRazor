@@ -14,6 +14,8 @@
         public void DeleteBooking(Booking booking);
 
         public Booking GetBookingByCustomerId(int customerId);
+
+        public IEnumerable<Booking> GetCustomerBookingsByCustomerId(int customerId);
     }
 
 

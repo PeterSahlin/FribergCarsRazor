@@ -26,11 +26,14 @@ namespace FribergCarsRazor.Pages.Bookings
             this.bookingRepo = bookingRepo;
         }
 
+        [BindProperty]
         public IList<Booking> Booking { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int id)
         {
-            Booking = await Task.FromResult(bookingRepo.GetAll().ToList());
+
+            Booking= bookingRepo.GetCustomerBookingsByCustomerId(id).ToList();
+            //Booking = await Task.FromResult(bookingRepo.GetAll().ToList());
         }
     }
 }
