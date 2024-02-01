@@ -52,11 +52,11 @@
                 <img src="@item.Image" style="max-width:200px"/>
                 @* @Html.DisplayFor(modelItem => item.Image) *@
             </td>
-          @*   <td>
-                <a asp-page="../Bookings/Create" asp-route-id="@item.CarId">Create booking</a> |
-                <a asp-page="./Details" asp-route-id="@item.CarId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.CarId">Delete</a>
-            </td> *@
+            <td>
+                <a asp-page="../Bookings/Logintest" asp-route-id="@item.CarId">Book car</a> 
+            @*     <a asp-page="./Details" asp-route-id="@item.CarId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CarId">Delete</a> *@
+            </td>
         </tr>
 }
     </tbody>

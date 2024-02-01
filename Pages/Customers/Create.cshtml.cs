@@ -44,7 +44,7 @@ namespace FribergCarsRazor.Pages.Customers
             //_context.Customers.Add(Customer);
             //await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("../Bookings/Logintest");
         }
     }
 }
