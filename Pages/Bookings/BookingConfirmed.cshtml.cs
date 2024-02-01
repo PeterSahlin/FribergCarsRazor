@@ -12,18 +12,25 @@ namespace FribergCarsRazor.Pages.Bookings
 {
     public class BookingConfirmedModel : PageModel
     {
-        private readonly FribergCarsRazor.ApplicationDbContext _context;
+        
+        private readonly IBooking bookingRepo;
 
-        public BookingConfirmedModel(FribergCarsRazor.ApplicationDbContext context)
+        public BookingConfirmedModel(IBooking bookingRepo)
         {
-            _context = context;
+           
+            this.bookingRepo = bookingRepo;
         }
 
-        public IList<Booking> Booking { get;set; } = default!;
+        public Booking Booking { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(Customer customer)
         {
-            Booking = await _context.Bookings.ToListAsync();
+            
+
+            Booking =bookingRepo.GetBookingByCustomerId(customer.CustomerId);
+
+
+            
         }
     }
 }

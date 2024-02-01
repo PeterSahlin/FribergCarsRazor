@@ -5,14 +5,69 @@
     ViewData["Title"] = "BookingConfirmed";
 }
 
-<h1>BookingConfirmed</h1>
+<h1>Booking details for @Html.DisplayFor(model => model.Booking.Customer.FirstName)</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.BookingId)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayFor(model => model.Booking.BookingId)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.Customer.FirstName)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayFor(model => model.Booking.Customer.FirstName)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.Customer.LastName)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayFor(model => model.Booking.Customer.LastName)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.Car.CarName)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayFor(model => model.Booking.Car.CarName)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.StartDate)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayFor(model => model.Booking.StartDate)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.EndDate)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayFor(model => model.Booking.EndDate)
+        </dt>
+
+
+    </dl>
+
+
+
+
+</div>
+
+
+@* <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].Customer.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].Customer.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Booking[0].Car.CarName)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Booking[0].StartDate)
             </th>
@@ -25,6 +80,15 @@
     <tbody>
 @foreach (var item in Model.Booking) {
         <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Car.CarName)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.StartDate)
             </td>
@@ -39,4 +103,4 @@
         </tr>
 }
     </tbody>
-</table>
+</table> *@

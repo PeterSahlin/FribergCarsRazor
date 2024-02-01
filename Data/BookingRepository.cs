@@ -1,4 +1,6 @@
-﻿namespace FribergCarsRazor.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace FribergCarsRazor.Data
 {
     public class BookingRepository:IBooking
     {
@@ -41,6 +43,14 @@
         {
             applicationDbContext.Remove(booking);
             applicationDbContext.SaveChanges();
+        }
+
+        public Booking GetBookingByCustomerId(int customerId)
+        {
+            return applicationDbContext.Bookings
+                .Include(b=>b.Customer)
+                .Include(b=>b.Car)
+                .FirstOrDefault(b => b.Customer.CustomerId == customerId);
         }
 
     }

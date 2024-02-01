@@ -12,6 +12,12 @@
         public void EditBooking(Booking booking);
         //Delete
         public void DeleteBooking(Booking booking);
+
+        public Booking GetBookingByCustomerId(int customerId);
     }
+
+
+
+
 }
 

@@ -56,7 +56,7 @@ namespace FribergCarsRazor.Pages.Bookings
         //public Booking Booking { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync(Booking booking )                               //var sätts och sparas datumet?
+        public async Task<IActionResult> OnPostAsync(Booking booking )                     
         {
 
             var customer = customerRepo.GetById(booking.Customer.CustomerId);
@@ -68,17 +68,15 @@ namespace FribergCarsRazor.Pages.Bookings
             if (!ModelState.IsValid)
             {
                 bookingRepo.CreateBooking(booking);
-                return RedirectToPage("./CustomerLoggedIn", customer);
-                //new { bookingData = booking }
+                //return RedirectToPage("./CustomerLoggedIn", customer);
+                return RedirectToPage("./BookingConfirmed", customer);
+
             }
             else
             {
                 return Page();
             }
-            //customerRepo.CreateBooking(booking);
-
-            //_context.Bookings.Add(Booking);
-            //await _context.SaveChangesAsync();
+           
 
         }
     }
