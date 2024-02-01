@@ -13,7 +13,13 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Booking.Customer.CustomerId"/>
+            <input type="hidden" asp-for="Booking.Customer.CustomerId" name="Booking.Customer.CustomerId" />
+
+            <select name="Booking.Car.CarId" asp-for="Booking.Car.CarId" asp-items="@(new SelectList(Model.CarList, "CarId", "CarName" ))">
+                <option value="">Select car</option>
+                <option></option>
+
+            </select>
 
             <div class="form-group">
                 <label asp-for="Booking.StartDate" class="control-label"></label>
@@ -26,7 +32,7 @@
                 <span asp-validation-for="Booking.EndDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create booking" class="btn btn-primary" />
             </div>
         </form>
     </div>

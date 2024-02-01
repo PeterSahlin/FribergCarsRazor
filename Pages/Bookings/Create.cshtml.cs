@@ -21,26 +21,32 @@ namespace FribergCarsRazor.Pages.Bookings
 
        
         private readonly ICustomer customerRepo;
+        private readonly ICar carRepo;
+        private readonly IBooking bookingRepo;
 
-        public CreateModel(ICustomer customerRepo)
+        public CreateModel(ICustomer customerRepo, ICar carRepo, IBooking bookingRepo)
         {
             this.customerRepo = customerRepo;
+            this.carRepo = carRepo;
+            this.bookingRepo = bookingRepo;
         }
 
         public Booking Booking { get; set; } = new Booking();
         public Customer Customer { get; set; } = default!;
 
+        public IEnumerable<Car> CarList { get; set; }
+
+
         public IActionResult OnGet(int id)
         {
-
+            
             var loggedInCustomer = customerRepo.GetById(id);
-            //if (false)
-            //{
-            //  return  RedirectToPage("Login");
-            //}
-            //else
-            //{
+         
             Booking.Customer = loggedInCustomer;
+
+            CarList = carRepo.GetAll();
+
+
             return Page();
 
             //}
@@ -50,14 +56,20 @@ namespace FribergCarsRazor.Pages.Bookings
         //public Booking Booking { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync(Booking booking)
+        public async Task<IActionResult> OnPostAsync(Booking booking )                               //var sätts och sparas datumet?
         {
+
             var customer = customerRepo.GetById(booking.Customer.CustomerId);
             booking.Customer = customer;
 
+            var selectedCar = carRepo.GetById(booking.Car.CarId);
+                booking.Car = selectedCar;
+
             if (!ModelState.IsValid)
             {
-                return RedirectToPage("./PickCar", new { bookingData = booking });
+                bookingRepo.CreateBooking(booking);
+                return RedirectToPage("./CustomerLoggedIn", customer);
+                //new { bookingData = booking }
             }
             else
             {

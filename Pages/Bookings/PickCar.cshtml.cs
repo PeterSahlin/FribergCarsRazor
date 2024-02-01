@@ -28,8 +28,11 @@ namespace FribergCarsRazor.Pages.Bookings
 
         public IList<Car> Car { get;set; } = default!;
 
-        public async Task OnGetAsync(Booking booking)
+        public async Task OnGetAsync(Booking booking)                   //hur ska denna ta emot från create-posten?
         {
+            var customerBooking = booking;
+            
+
             Car = await Task.FromResult(carRepo.GetAll().ToList());
         }
 
