@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using FribergCarsRazor.Data;
 
-namespace FribergCarsRazor.Pages.Customers
+namespace FribergCarsRazor.Pages.Admins.CarControl
 {
     public class DeleteModel : PageModel
     {
@@ -18,15 +18,15 @@ namespace FribergCarsRazor.Pages.Customers
         //    _context = context;
         //}
 
-        private readonly ICustomer customerRepo;
+        private readonly ICar carRepo;
 
-        public DeleteModel(ICustomer customerRepo)
+        public DeleteModel(ICar carRepo)
         {
-            this.customerRepo = customerRepo;
+            this.carRepo = carRepo;
         }
 
         [BindProperty]
-        public Customer Customer { get; set; } = default!;
+        public Car Car { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -35,16 +35,17 @@ namespace FribergCarsRazor.Pages.Customers
                 return NotFound();
             }
 
-            //var customer = await _context.Customers.FirstOrDefaultAsync(m => m.CustomerId == id);
-            var customer = customerRepo.GetById(id);
+            //var car = await _context.Cars.FirstOrDefaultAsync(m => m.CarId == id);
 
-            if (customer == null)
+            var car = carRepo.GetById(id);
+
+            if (car == null)
             {
                 return NotFound();
             }
             else
             {
-                Customer = customer;
+                Car = car;
             }
             return Page();
         }
@@ -56,13 +57,14 @@ namespace FribergCarsRazor.Pages.Customers
                 return NotFound();
             }
 
-            //var customer = await _context.Customers.FindAsync(id);
-            var customer = customerRepo.GetById(id);
-            if (customer != null)
+            //var car = await _context.Cars.FindAsync(id);
+            var car = carRepo.GetById(id);
+
+            if (car != null)
             {
-                Customer = customer;
-                customerRepo.DeleteCustomer(customer);
-                //_context.Customers.Remove(Customer);
+                Car = car;
+                carRepo.DeleteCar(car);
+                //_context.Cars.Remove(Car);
                 //await _context.SaveChangesAsync();
             }
 

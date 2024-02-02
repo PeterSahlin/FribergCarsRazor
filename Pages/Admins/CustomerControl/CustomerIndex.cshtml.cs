@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using FribergCarsRazor;
 using FribergCarsRazor.Data;
 
-namespace FribergCarsRazor.Pages.Admins
+namespace FribergCarsRazor.Pages.Admins.CustomerControl
 {
     public class IndexModel : PageModel
     {
@@ -19,18 +18,19 @@ namespace FribergCarsRazor.Pages.Admins
         //    _context = context;
         //}
 
-        private readonly IAdmin adminRepo;
+        private readonly ICustomer customerRepo;
 
-        public IndexModel(IAdmin adminRepo)
+        public IndexModel(ICustomer customerRepo)
         {
-            this.adminRepo = adminRepo;
+            this.customerRepo = customerRepo;
         }
 
-        public IList<Admin> Admin { get;set; } = default!;
+        public IList<Customer> Customer { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Admin = await Task.FromResult(adminRepo.GetAll().ToList());
+            Customer = await Task.FromResult(customerRepo.GetAll().ToList());
+            /*await _context.Customers.ToListAsync();*/
         }
     }
 }

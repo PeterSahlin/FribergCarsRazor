@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using FribergCarsRazor;
 using FribergCarsRazor.Data;
 
-namespace FribergCarsRazor.Pages.Cars
+namespace FribergCarsRazor.Pages.Admins.CustomerControl
 {
     public class EditModel : PageModel
     {
+
         //private readonly ApplicationDbContext _context;
 
         //public EditModel(ApplicationDbContext context)
@@ -20,15 +20,14 @@ namespace FribergCarsRazor.Pages.Cars
         //    _context = context;
         //}
 
-        private readonly ICar carRepo;
-
-        public EditModel(ICar carRepo)
+        private readonly ICustomer customerRepo;
+        public EditModel(ICustomer customerRepo)
         {
-            this.carRepo = carRepo;
+            this.customerRepo = customerRepo;
         }
 
         [BindProperty]
-        public Car Car { get; set; } = default!;
+        public Customer Customer { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -37,13 +36,13 @@ namespace FribergCarsRazor.Pages.Cars
                 return NotFound();
             }
 
-            //var car =  await _context.Cars.FirstOrDefaultAsync(m => m.CarId == id);
-            var car = carRepo.GetById(id);
-            if (car == null)
+            //var customer = await _context.Customers.FirstOrDefaultAsync(m => m.CustomerId == id);
+            var customer = customerRepo.GetById(id);
+            if (customer == null)
             {
                 return NotFound();
             }
-            Car = car;
+            Customer = customer;
             return Page();
         }
 
@@ -55,9 +54,8 @@ namespace FribergCarsRazor.Pages.Cars
             {
                 return Page();
             }
-
-            carRepo.EditCar(Car);
-            //_context.Attach(Car).State = EntityState.Modified;
+            customerRepo.EditCustomer(Customer);
+            //_context.Attach(Customer).State = EntityState.Modified;
 
             //try
             //{
@@ -65,7 +63,7 @@ namespace FribergCarsRazor.Pages.Cars
             //}
             //catch (DbUpdateConcurrencyException)
             //{
-            //    if (!CarExists(Car.CarId))
+            //    if (!CustomerExists(Customer.CustomerId))
             //    {
             //        return NotFound();
             //    }
@@ -78,9 +76,9 @@ namespace FribergCarsRazor.Pages.Cars
             return RedirectToPage("./Index");
         }
 
-        //private bool CarExists(int id)
+        //private bool CustomerExists(int id)
         //{
-        //    return _context.Cars.Any(e => e.CarId == id);
+        //    return _context.Customers.Any(e => e.CustomerId == id);
         //}
     }
 }

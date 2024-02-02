@@ -8,26 +8,26 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FribergCarsRazor.Data;
 
-namespace FribergCarsRazor.Pages.Customers
+namespace FribergCarsRazor.Pages.Admins.AdminControl
 {
     public class EditModel : PageModel
     {
+        //private readonly FribergCarsRazor.ApplicationDbContext _context;
 
-        //private readonly ApplicationDbContext _context;
-
-        //public EditModel(ApplicationDbContext context)
+        //public EditModel(FribergCarsRazor.ApplicationDbContext context)
         //{
         //    _context = context;
         //}
 
-        private readonly ICustomer customerRepo;
-        public EditModel(ICustomer customerRepo)
+        private readonly IAdmin adminRepo;
+
+        public EditModel(IAdmin adminRepo)
         {
-            this.customerRepo = customerRepo;
+            this.adminRepo = adminRepo;
         }
 
         [BindProperty]
-        public Customer Customer { get; set; } = default!;
+        public Admin Admin { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -36,13 +36,13 @@ namespace FribergCarsRazor.Pages.Customers
                 return NotFound();
             }
 
-            //var customer = await _context.Customers.FirstOrDefaultAsync(m => m.CustomerId == id);
-            var customer = customerRepo.GetById(id);
-            if (customer == null)
+            //var admin =  await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);
+            var admin = adminRepo.GetById(id);
+            if (admin == null)
             {
                 return NotFound();
             }
-            Customer = customer;
+            Admin = admin;
             return Page();
         }
 
@@ -54,8 +54,9 @@ namespace FribergCarsRazor.Pages.Customers
             {
                 return Page();
             }
-            customerRepo.EditCustomer(Customer);
-            //_context.Attach(Customer).State = EntityState.Modified;
+
+            adminRepo.EditAdmin(Admin);
+            //_context.Attach(Admin).State = EntityState.Modified;
 
             //try
             //{
@@ -63,7 +64,7 @@ namespace FribergCarsRazor.Pages.Customers
             //}
             //catch (DbUpdateConcurrencyException)
             //{
-            //    if (!CustomerExists(Customer.CustomerId))
+            //    if (!AdminExists(Admin.AdminId))
             //    {
             //        return NotFound();
             //    }
@@ -76,9 +77,9 @@ namespace FribergCarsRazor.Pages.Customers
             return RedirectToPage("./Index");
         }
 
-        //private bool CustomerExists(int id)
+        //private bool AdminExists(int id)
         //{
-        //    return _context.Customers.Any(e => e.CustomerId == id);
+        //    return _context.Admins.Any(e => e.AdminId == id);
         //}
     }
 }

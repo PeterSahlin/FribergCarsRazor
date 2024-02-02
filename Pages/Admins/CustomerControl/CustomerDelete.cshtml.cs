@@ -5,29 +5,28 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using FribergCarsRazor;
 using FribergCarsRazor.Data;
 
-namespace FribergCarsRazor.Pages.Admins
+namespace FribergCarsRazor.Pages.Admins.CustomerControl
 {
     public class DeleteModel : PageModel
     {
-        //private readonly FribergCarsRazor.ApplicationDbContext _context;
+        //private readonly ApplicationDbContext _context;
 
-        //public DeleteModel(FribergCarsRazor.ApplicationDbContext context)
+        //public DeleteModel(ApplicationDbContext context)
         //{
         //    _context = context;
         //}
 
-        private readonly IAdmin adminRepo;
+        private readonly ICustomer customerRepo;
 
-        public DeleteModel(IAdmin adminRepo)
+        public DeleteModel(ICustomer customerRepo)
         {
-            this.adminRepo = adminRepo;
+            this.customerRepo = customerRepo;
         }
 
         [BindProperty]
-        public Admin Admin { get; set; } = default!;
+        public Customer Customer { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -36,16 +35,16 @@ namespace FribergCarsRazor.Pages.Admins
                 return NotFound();
             }
 
-            //var admin = await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);
-            var admin = adminRepo.GetById(id);
+            //var customer = await _context.Customers.FirstOrDefaultAsync(m => m.CustomerId == id);
+            var customer = customerRepo.GetById(id);
 
-            if (admin == null)
+            if (customer == null)
             {
                 return NotFound();
             }
             else
             {
-                Admin = admin;
+                Customer = customer;
             }
             return Page();
         }
@@ -57,15 +56,14 @@ namespace FribergCarsRazor.Pages.Admins
                 return NotFound();
             }
 
-            //var admin = await _context.Admins.FindAsync(id);
-            var admin = adminRepo.GetById(id);
-
-            if (admin != null)
+            //var customer = await _context.Customers.FindAsync(id);
+            var customer = customerRepo.GetById(id);
+            if (customer != null)
             {
-                Admin = admin;
-                //_context.Admins.Remove(Admin);
+                Customer = customer;
+                customerRepo.DeleteCustomer(customer);
+                //_context.Customers.Remove(Customer);
                 //await _context.SaveChangesAsync();
-                adminRepo.DeleteAdmin(admin);
             }
 
             return RedirectToPage("./Index");

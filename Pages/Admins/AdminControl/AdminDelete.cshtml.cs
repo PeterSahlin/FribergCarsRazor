@@ -5,29 +5,29 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using FribergCarsRazor;
 using FribergCarsRazor.Data;
 
-namespace FribergCarsRazor.Pages.Cars
+namespace FribergCarsRazor.Pages.Admins.AdminControl
+
 {
     public class DeleteModel : PageModel
     {
-        //private readonly ApplicationDbContext _context;
+        //private readonly FribergCarsRazor.ApplicationDbContext _context;
 
-        //public DeleteModel(ApplicationDbContext context)
+        //public DeleteModel(FribergCarsRazor.ApplicationDbContext context)
         //{
         //    _context = context;
         //}
 
-        private readonly ICar carRepo;
+        private readonly IAdmin adminRepo;
 
-        public DeleteModel(ICar carRepo)
+        public DeleteModel(IAdmin adminRepo)
         {
-            this.carRepo = carRepo;
+            this.adminRepo = adminRepo;
         }
 
         [BindProperty]
-        public Car Car { get; set; } = default!;
+        public Admin Admin { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -36,17 +36,16 @@ namespace FribergCarsRazor.Pages.Cars
                 return NotFound();
             }
 
-            //var car = await _context.Cars.FirstOrDefaultAsync(m => m.CarId == id);
+            //var admin = await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);
+            var admin = adminRepo.GetById(id);
 
-            var car = carRepo.GetById(id);
-
-            if (car == null)
+            if (admin == null)
             {
                 return NotFound();
             }
             else
             {
-                Car = car;
+                Admin = admin;
             }
             return Page();
         }
@@ -58,15 +57,15 @@ namespace FribergCarsRazor.Pages.Cars
                 return NotFound();
             }
 
-            //var car = await _context.Cars.FindAsync(id);
-            var car = carRepo.GetById(id);
+            //var admin = await _context.Admins.FindAsync(id);
+            var admin = adminRepo.GetById(id);
 
-            if (car != null)
+            if (admin != null)
             {
-                Car = car;
-                carRepo.DeleteCar(car);
-                //_context.Cars.Remove(Car);
+                Admin = admin;
+                //_context.Admins.Remove(Admin);
                 //await _context.SaveChangesAsync();
+                adminRepo.DeleteAdmin(admin);
             }
 
             return RedirectToPage("./Index");

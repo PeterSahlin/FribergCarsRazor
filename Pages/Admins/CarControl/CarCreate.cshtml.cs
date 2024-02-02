@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using FribergCarsRazor.Data;
 
-namespace FribergCarsRazor.Pages.Customers
+namespace FribergCarsRazor.Pages.Admins.CarControl
 {
     public class CreateModel : PageModel
     {
@@ -18,19 +18,19 @@ namespace FribergCarsRazor.Pages.Customers
         //    _context = context;
         //}
 
-        private readonly ICustomer customerRepo;
-        public CreateModel(ICustomer customerRepo)
-        {
-            this.customerRepo = customerRepo;
-        }
+        private readonly ICar carRepo;
 
+        public CreateModel(ICar carRepo)
+        {
+            this.carRepo = carRepo;
+        }
         public IActionResult OnGet()
         {
             return Page();
         }
 
         [BindProperty]
-        public Customer Customer { get; set; } = default!;
+        public Car Car { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -40,11 +40,11 @@ namespace FribergCarsRazor.Pages.Customers
                 return Page();
             }
 
-            customerRepo.CreateCustomer(Customer);
-            //_context.Customers.Add(Customer);
+            carRepo.CreateCar(Car);
+            //_context.Cars.Add(Car);
             //await _context.SaveChangesAsync();
 
-            return RedirectToPage("../Bookings/Logintest");
+            return RedirectToPage("./Index");
         }
     }
 }
