@@ -6,6 +6,8 @@
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        //public string AdminName { get; set; }      Här eller i någon loginklass? Password?
+
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }
