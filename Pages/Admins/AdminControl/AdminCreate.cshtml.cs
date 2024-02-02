@@ -45,7 +45,7 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
             //_context.Admins.Add(Admin);
             //await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./AdminIndex");
         }
     }
 }

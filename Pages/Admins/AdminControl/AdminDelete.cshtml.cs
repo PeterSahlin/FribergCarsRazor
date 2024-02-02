@@ -68,7 +68,7 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
                 adminRepo.DeleteAdmin(admin);
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./AdminIndex");
         }
     }
 }
