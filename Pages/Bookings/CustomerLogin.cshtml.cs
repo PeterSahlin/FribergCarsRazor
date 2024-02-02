@@ -35,6 +35,8 @@ namespace FribergCarsRazor.Pages.Bookings
         [BindProperty]
         public Customer Customer { get; set; } = default!;
 
+      
+
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
@@ -44,6 +46,7 @@ namespace FribergCarsRazor.Pages.Bookings
             {
                 if (customer == null)
                 {
+                   
                     return Page();
                 }
                 //else

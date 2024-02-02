@@ -68,7 +68,7 @@ namespace FribergCarsRazor.Pages.Admins.CarControl
                 //await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./CarIndex");
         }
     }
 }

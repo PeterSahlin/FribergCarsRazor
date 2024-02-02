@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using FribergCarsRazor;
 using FribergCarsRazor.Data;
 
 namespace FribergCarsRazor.Pages.Cars
@@ -26,12 +25,12 @@ namespace FribergCarsRazor.Pages.Cars
             this.carRepo = carRepo;
         }
 
-        public IList<Car> Car { get;set; } = default!;
+        public IList<Car> Car { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
             Car = await Task.FromResult(carRepo.GetAll().ToList());
-                /*await _context.Cars.ToListAsync();*/
+            /*await _context.Cars.ToListAsync();*/
         }
     }
 }

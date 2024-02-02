@@ -1,11 +1,13 @@
 ﻿@page
-@model FribergCarsRazor.Pages.Cars.IndexModel
+@model IndexModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Car management</h1>
+
+<h4>Handle our cars below.</h4>
 
 
    
@@ -53,9 +55,9 @@
                 @* @Html.DisplayFor(modelItem => item.Image) *@
             </td>
             <td>
-                <a asp-page="../Bookings/Logintest" asp-route-id="@item.CarId">Book car</a> 
-            @*     <a asp-page="./Details" asp-route-id="@item.CarId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.CarId">Delete</a> *@
+                    <a asp-page="./CarEdit" asp-route-id="@item.CarId">Edit</a> |
+                    <a asp-page="./CarDetails" asp-route-id="@item.CarId">Details</a> |
+                    <a asp-page="./CarDelete" asp-route-id="@item.CarId">Delete</a>
             </td>
         </tr>
 }

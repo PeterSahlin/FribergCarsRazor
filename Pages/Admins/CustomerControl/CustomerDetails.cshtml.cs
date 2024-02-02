@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using FribergCarsRazor;
 using FribergCarsRazor.Data;
 
-namespace FribergCarsRazor.Pages.Cars
+namespace FribergCarsRazor.Pages.Admins.CustomerControl
 {
     public class DetailsModel : PageModel
     {
@@ -19,14 +18,13 @@ namespace FribergCarsRazor.Pages.Cars
         //    _context = context;
         //}
 
-        private readonly ICar carRepo;
+        private readonly ICustomer customerRepo;
 
-        public DetailsModel(ICar carRepo)
+        public DetailsModel(ICustomer customerRepo)
         {
-            this.carRepo = carRepo;
+            this.customerRepo = customerRepo;
         }
-
-        public Car Car { get; set; } = default!;
+        public Customer Customer { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int id)
         {
@@ -35,15 +33,15 @@ namespace FribergCarsRazor.Pages.Cars
                 return NotFound();
             }
 
-            var car = carRepo.GetById(id);
-            /*await _context.Cars.FirstOrDefaultAsync(m => m.CarId == id);*/
-            if (car == null)
+            //var customer = await _context.Customers.FirstOrDefaultAsync(m => m.CustomerId == id);
+            var customer = customerRepo.GetById(id);
+            if (customer == null)
             {
                 return NotFound();
             }
             else
             {
-                Car = car;
+                Customer = customer;
             }
             return Page();
         }

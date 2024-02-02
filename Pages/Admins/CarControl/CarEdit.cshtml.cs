@@ -74,7 +74,7 @@ namespace FribergCarsRazor.Pages.Admins.CarControl
             //    }
             //}
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./CarIndex");
         }
 
         //private bool CarExists(int id)
