@@ -19,7 +19,6 @@
   <ItemGroup>
     <Folder Include="Pages\Admins\BookingControl\" />
     <Folder Include="Pages\Customers\" />
-    <Folder Include="Pages\Login\" />
   </ItemGroup>
 
 </Project>

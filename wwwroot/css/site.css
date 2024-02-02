@@ -105,6 +105,17 @@ body {
 .page-header {
 }
 
+.content-box {
+    background-color: var(--logoWhite);
+    color: var(--black);
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2%;
+    padding: 1%;
+    width:80%;
+}
+
 .site-footer {
     background-color: var(--logoSilver);
     color: var(--black);
