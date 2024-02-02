@@ -73,7 +73,7 @@ namespace FribergCarsRazor.Pages.Admins.CustomerControl
             //    }
             //}
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./CustomerIndex");
         }
 
         //private bool CustomerExists(int id)

@@ -42,5 +42,14 @@
             applicationDbContext.Remove(admin);
             applicationDbContext.SaveChanges();
         }
+
+        public Admin GetAdminByEmailNameAndPassword(string email, string password)
+        {
+            var admin = applicationDbContext.Admins.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
+            return admin;
+
+
+
+        }
     }
 }

@@ -46,11 +46,11 @@ namespace FribergCarsRazor.Pages.Bookings
                 {
                     return Page();
                 }
-                else
-                {
-                    loggedInCustomer = customer;
-                    //return RedirectToPage("/Admins/Index", loggedInCustomer); //boka bil-sidan, 
-                }
+                //else
+                //{
+                //    loggedInCustomer = customer;
+                
+                //}
 
             }
             return RedirectToPage("./CustomerLoggedIn", customer);
