@@ -26,9 +26,20 @@
         </dd>
     </dl>
     
+    @functions{
+     
+        private int GetCustomerIdFromCookie()
+        {
+         
+            int customerId = Convert.ToInt32(Request.Cookies["User"]); ;
+
+            return customerId;
+        }
+    }
+
     <form method="post">
         <input type="hidden" asp-for="Booking.BookingId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index" asp-route-id="Booking.Customer.CustomerId">Back to List</a>
+        <a asp-page="./Index" asp-route-id="@GetCustomerIdFromCookie()">Back to List</a>
     </form>
 </div>

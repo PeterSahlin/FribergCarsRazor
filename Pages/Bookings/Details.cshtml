@@ -27,5 +27,17 @@
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Booking.BookingId">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+    @functions {
+
+        private int GetCustomerIdFromCookie()
+        {
+
+            int customerId = Convert.ToInt32(Request.Cookies["User"]); ;
+
+            return customerId;
+        }
+    }
+
+    <a asp-page="./CustomerLoggedIn" asp-route-id="@GetCustomerIdFromCookie()">Back to List</a>
+
+

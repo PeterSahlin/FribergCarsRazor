@@ -60,7 +60,21 @@
                <a asp-page="./Delete" asp-route-id="@item.BookingId">Delete</a>
             </td>
         </tr>
-}
+} 
+        @functions{
+     
+        private int GetCustomerIdFromCookie()
+        {
+         
+            int customerId = Convert.ToInt32(Request.Cookies["User"]); ;
+
+            return customerId;
+        }
+    }
+
+            <a asp-page="./CustomerLoggedIn" asp-route-id="@GetCustomerIdFromCookie()">Back to List</a>
+
+                
     </tbody>
 </table>
 </div>
