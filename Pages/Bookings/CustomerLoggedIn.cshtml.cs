@@ -28,7 +28,7 @@ namespace FribergCarsRazor.Pages.Bookings
 
         public Customer Customer { get;set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(Customer customer)
+        public async Task<IActionResult> OnGetAsync(/*Customer customer*/)
         {
             int userFromCookie= Convert.ToInt32(Request.Cookies["User"]);
             var loggedInCustomer = customerRepo.GetById(userFromCookie);

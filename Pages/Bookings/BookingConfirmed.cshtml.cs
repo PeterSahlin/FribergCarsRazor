@@ -23,11 +23,12 @@ namespace FribergCarsRazor.Pages.Bookings
 
         public Booking Booking { get;set; } = default!;
 
-        public async Task OnGetAsync(Customer customer)
+        public async Task OnGetAsync(/*Customer customer*/)
         {
+            int userFromCookie = Convert.ToInt32(Request.Cookies["User"]);
             
 
-            Booking =bookingRepo.GetBookingByCustomerId(customer.CustomerId);
+            Booking =bookingRepo.GetBookingByCustomerId(userFromCookie);
 
 
             
