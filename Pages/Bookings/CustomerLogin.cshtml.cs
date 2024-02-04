@@ -20,11 +20,12 @@ namespace FribergCarsRazor.Pages.Bookings
         //}
 
         private readonly ICustomer customerRepo;
-        private Customer loggedInCustomer;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public LogintestModel(ICustomer customerRepo)
+        public LogintestModel(ICustomer customerRepo, IHttpContextAccessor httpContextAccessor)
         {
             this.customerRepo = customerRepo;
+            this.httpContextAccessor = httpContextAccessor;
         }
 
         public IActionResult OnGet()
@@ -49,14 +50,18 @@ namespace FribergCarsRazor.Pages.Bookings
                    
                     return Page();
                 }
-                //else
-                //{
-                //    loggedInCustomer = customer;
-                
-                //}
+                else
+                {
+                    var customerLoggedIn = customer.CustomerId.ToString();
+                    CookieOptions options = new CookieOptions();
+                    options.Expires = DateTimeOffset.UtcNow.AddMinutes(15);
+                    httpContextAccessor.HttpContext.Response.Cookies.Append("User", customerLoggedIn, options);
+
+                }
 
             }
-            return RedirectToPage("./CustomerLoggedIn", customer);
+
+            return RedirectToPage("./CustomerLoggedIn"/*, customer*/);
             //if (!ModelState.IsValid)
             //{
             //    return Page();

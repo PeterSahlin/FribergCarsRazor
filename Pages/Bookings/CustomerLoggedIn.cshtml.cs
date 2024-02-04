@@ -30,16 +30,17 @@ namespace FribergCarsRazor.Pages.Bookings
 
         public async Task<IActionResult> OnGetAsync(Customer customer)
         {
-            var loggedInCustomer = customerRepo.GetById(customer.CustomerId);
-            
-                /*await _context.Customers.ToListAsync();*/
-                if (loggedInCustomer == null)
+            int userFromCookie= Convert.ToInt32(Request.Cookies["User"]);
+            var loggedInCustomer = customerRepo.GetById(userFromCookie);
+
+            /*await _context.Customers.ToListAsync();*/
+            if (loggedInCustomer == null)
             {
                 return NotFound();
             }
             else
             {
-                Customer = customer;
+                Customer = loggedInCustomer;
             }
             return Page();
 
