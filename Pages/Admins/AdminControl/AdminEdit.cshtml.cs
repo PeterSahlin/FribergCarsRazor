@@ -29,15 +29,18 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
         [BindProperty]
         public Admin Admin { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int id)
+        public async Task<IActionResult> OnGetAsync()
         {
-            if (id == null)
+            int adminFromCookie = Convert.ToInt32(Request.Cookies["Admin"]);
+            
+
+            if (adminFromCookie == null)
             {
                 return NotFound();
             }
 
             //var admin =  await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);
-            var admin = adminRepo.GetById(id);
+            var admin = adminRepo.GetById(adminFromCookie);
             if (admin == null)
             {
                 return NotFound();
@@ -74,7 +77,7 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
             //    }
             //}
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./AdminIndex");
         }
 
         //private bool AdminExists(int id)

@@ -26,6 +26,16 @@
                 <span asp-validation-for="Admin.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Admin.Email" class="control-label"></label>
+                <input asp-for="Admin.Email" class="form-control" />
+                <span asp-validation-for="Admin.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Admin.Password" class="control-label"></label>
+                <input asp-for="Admin.Password" class="form-control" />
+                <span asp-validation-for="Admin.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>

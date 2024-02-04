@@ -99,7 +99,11 @@ body {
 }
 
     .top-site-nav :hover a {
-        color: red;
+        color: var(--black);
+    }
+
+    #logout{
+        float:right;
     }
 
 .page-header {
