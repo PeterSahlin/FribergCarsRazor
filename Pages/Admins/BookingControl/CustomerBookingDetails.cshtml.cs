@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using FribergCarsRazor;
 using FribergCarsRazor.Data;
 
-namespace FribergCarsRazor.Pages.Bookings
+namespace FribergCarsRazor.Pages.Admins.BookingControl
 {
     public class DetailsModel : PageModel
     {
@@ -34,8 +33,8 @@ namespace FribergCarsRazor.Pages.Bookings
                 return NotFound();
             }
 
-            var booking =  bookingRepo.GetById(id);
-            /*await _context.Bookings.FirstOrDefaultAsync(m => m.BookingId == id);*/
+            var booking = bookingRepo.GetById(id);
+           
             if (booking == null)
             {
                 return NotFound();

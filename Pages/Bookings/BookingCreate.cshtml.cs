@@ -57,7 +57,7 @@ namespace FribergCarsRazor.Pages.Bookings
         //public Booking Booking { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync(Booking booking )                     
+        public async Task<IActionResult> OnPostAsync(Booking booking)                     
         {
             int userFromCookie = Convert.ToInt32(Request.Cookies["User"]);
             

@@ -1,5 +1,5 @@
 ﻿@page
-@model FribergCarsRazor.Pages.Bookings.EditModel
+@model EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -13,7 +13,14 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Booking.BookingId" />
+            <input type="hidden" asp-for="Booking.Customer.CustomerId" name="Booking.Customer.CustomerId" />
+
+            <select name="Booking.Car.CarId" asp-for="Booking.Car.CarId" asp-items="@(new SelectList(Model.CarList, "CarId", "CarName" ))">
+                <option value="">Select car</option>
+              
+
+            </select>
+
             <div class="form-group">
                 <label asp-for="Booking.StartDate" class="control-label"></label>
                 <input asp-for="Booking.StartDate" class="form-control" />
@@ -24,6 +31,10 @@
                 <input asp-for="Booking.EndDate" class="form-control" />
                 <span asp-validation-for="Booking.EndDate" class="text-danger"></span>
             </div>
+            @* <div class="form-group">
+                <input type="submit" value="Create booking" class="btn btn-primary" />
+            </div> *@
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -32,7 +43,7 @@
 </div>
 
 <div>
-    @functions {
+   @*  @functions {
 
         private int GetCustomerIdFromCookie()
         {
@@ -43,7 +54,7 @@
         }
     }
 
-    <a asp-page="./CustomerLoggedIn" asp-route-id="@GetCustomerIdFromCookie()">Back to List</a>
+    <a asp-page="./CustomerLoggedIn" asp-route-id="@GetCustomerIdFromCookie()">Back to List</a> *@
 
 
 

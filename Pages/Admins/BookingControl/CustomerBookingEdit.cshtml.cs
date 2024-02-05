@@ -6,10 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using FribergCarsRazor;
 using FribergCarsRazor.Data;
 
-namespace FribergCarsRazor.Pages.Bookings
+namespace FribergCarsRazor.Pages.Admins.BookingControl
 {
     public class EditModel : PageModel
     {
@@ -21,23 +20,33 @@ namespace FribergCarsRazor.Pages.Bookings
         //}
 
         private readonly IBooking bookingRepo;
-        public EditModel(IBooking bookingRepo)
+        private readonly ICar carRepo;
+        private readonly ICustomer customerRepo;
+
+        public EditModel(IBooking bookingRepo, ICar carRepo, ICustomer customerRepo)
         {
             this.bookingRepo = bookingRepo;
+            this.carRepo = carRepo;
+            this.customerRepo = customerRepo;
         }
 
         [BindProperty]
         public Booking Booking { get; set; } = default!;
 
+        public IEnumerable<Car> CarList { get; set; }           //Den här har jag lagt till nu
+
         public async Task<IActionResult> OnGetAsync(int id)
         {
+            CarList = carRepo.GetAll();                     //det här har jag lagt till nu
+            
             if (id == null)
             {
                 return NotFound();
             }
 
             var booking = bookingRepo.GetById(id);
-            /*await _context.Bookings.FirstOrDefaultAsync(m => m.BookingId == id);*/
+            //Booking.Customer = customerRepo.GetById(booking.Customer.CustomerId);
+            
             if (booking == null)
             {
                 return NotFound();
@@ -56,30 +65,10 @@ namespace FribergCarsRazor.Pages.Bookings
             }
 
             bookingRepo.EditBooking(Booking);
-            //_context.Attach(Booking).State = EntityState.Modified;
+          
 
-            //try
-            //{
-            //    await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!BookingExists(Booking.BookingId))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
-
-            return RedirectToPage("./Index");
+            return RedirectToPage("./CustomerBookingIndex");
         }
 
-        //private bool BookingExists(int id)
-        //{
-        //    return _context.Bookings.Any(e => e.BookingId == id);
-        //}
     }
 }

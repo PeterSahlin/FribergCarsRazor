@@ -236,7 +236,7 @@ table {
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
-    width: 65%;
+    width: 90%;
     background-color: var(--logoWhite);
     margin-bottom: 2%;
     color: var(--black);
@@ -249,7 +249,7 @@ table {
         border-right: 1px solid var(--logoBlueBlack);
         border-width: 1px;
         text-align: center;
-        max-width: 200px; /* Justera detta värde efter ditt behov */
+        max-width: 200px; 
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis; /* Visar ellipsis (...) om innehållet är för långt för att visas */

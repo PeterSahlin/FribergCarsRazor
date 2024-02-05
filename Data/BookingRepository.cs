@@ -50,7 +50,8 @@ namespace FribergCarsRazor.Data
             return applicationDbContext.Bookings
                 .Include(b=>b.Customer)
                 .Include(b=>b.Car)
-                .FirstOrDefault(b => b.Customer.CustomerId == customerId);
+                .OrderByDescending(b => b.BookingId)
+                .FirstOrDefault(b => b.Customer.CustomerId == customerId);  //Hämtar första, vill hämta senaste. 
         }
 
         public IEnumerable<Booking> GetCustomerBookingsList()
