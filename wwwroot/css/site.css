@@ -109,6 +109,29 @@ body {
 .page-header {
 }
 
+.link-button {
+    height: auto;
+    width: auto;
+    border-style: solid;
+    border-color: var(--black);
+    background-color: var(--logoSilver);
+    color: var(--black);
+    text-decoration: none;
+    font-size: medium;
+    text-align: center;
+    padding: 0.4%;
+    border-radius: 10%;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+    .link-button:hover {
+        background-color: var(--logoYellow);
+        color: var(--black);
+        
+    }
+
 .content-box {
     background-color: var(--logoWhite);
     color: var(--black);
@@ -140,7 +163,7 @@ body {
     color: var(--black);
     font-size: medium;
     text-align: center;
-    padding: 0.5%;
+    padding: 0.4%;
     border-radius: 10%;
     cursor: pointer;
     display: inline-flex;

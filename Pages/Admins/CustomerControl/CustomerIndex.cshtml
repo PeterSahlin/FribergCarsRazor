@@ -44,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.Password)
             </td>
             <td>
-                <a asp-page="./CustomerEdit" asp-route-id="@item.CustomerId">Edit</a> |
-                    <a asp-page="./CustomerEdit" asp-route-id="@item.CustomerId">Details</a> |
-                    <a asp-page="./CustomerDelete" asp-route-id="@item.CustomerId">Delete</a>
+                    <a asp-page="./CustomerEdit" class="link-button" asp-route-id="@item.CustomerId">Edit</a> |
+                    <a asp-page="./CustomerDetails" class="link-button" asp-route-id="@item.CustomerId">Details</a> |
+                    <a asp-page="./CustomerDelete" class="link-button" asp-route-id="@item.CustomerId">Delete</a>
             </td>
         </tr>
 }

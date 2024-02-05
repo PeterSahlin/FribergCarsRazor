@@ -5,13 +5,13 @@
     ViewData["Title"] = "CustomerLoggedIn";
 }
 
-<h1>Welcome, @Html.DisplayFor(model=>model.Customer.FirstName)</h1>
+<h1>Welcome, @Html.DisplayFor(model => model.Customer.FirstName)</h1>
 
 <div class="content-box">
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model=>model.Customer.FirstName)
+            @Html.DisplayNameFor(model => model.Customer.FirstName)
         </dt>
         <dt class="col-sm-2">
             @Html.DisplayFor(model => model.Customer.FirstName)
@@ -43,9 +43,9 @@
 
 
 
-                <a asp-page="./BookingCreate" asp-route-id="@Model.Customer?.CustomerId">Book car</a> |
-                <a asp-page="./BookingIndex" asp-route-id="@Model.Customer?.CustomerId">List bookings</a> |
-               
+<a asp-page="./BookingCreate" class="link-button" asp-route-id="@Model.Customer?.CustomerId">Book car</a> |
+<a asp-page="./BookingIndex" class="link-button" asp-route-id="@Model.Customer?.CustomerId">List bookings</a> |
+
              </td>
         </tr>
 }
