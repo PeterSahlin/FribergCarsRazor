@@ -1,3 +1,18 @@
 ﻿@{
-    Layout = "_Layout";
+    if (Context.Request.Cookies["Admin"] == null && Context.Request.Cookies["User"] == null)
+    {
+        Layout = "_Layout";
+    }
+    else if (Context.Request.Cookies["Admin"] != null && Context.Request.Cookies["User"] == null)
+    {
+        Layout = "_LayoutAdmin";
+    }
+    else if (Context.Request.Cookies["User"] != null && Context.Request.Cookies["Admin"] == null)
+    {
+        Layout = "_LayoutCustomer";
+    }
+
+
+
+
 }

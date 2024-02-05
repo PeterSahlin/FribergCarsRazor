@@ -46,15 +46,15 @@
                 <a class="nav-links" asp-area="" asp-page="Cars/CarIndex">Our cars</a>
 
                 
-                <a class="nav-links" asp-area="" asp-page="/Bookings/CustomerLogin">Customer login</a>
+               @*  <a class="nav-links" asp-area="" asp-page="/Bookings/CustomerLogin">Customer login</a>
 
-                <a class="nav-links" asp-area="" asp-page="/Admins/AdminLogin">Admin login</a>
+                <a class="nav-links" asp-area="" asp-page="/Admins/AdminLogin">Admin login</a> *@
                 
           
-           @*  <div id="logout">
-                <a class="nav-links" asp-area="" asp-page="/../../Index">Logout</a>
+            <div id="logout">
+                    <a class="nav-links" asp-area="" asp-page="/Index" asp-page-handler="LogOut">Logout</a>
 
-            </div> *@
+            </div>
             @*     <a class="nav-links" asp-area="" asp-page="/Customers/Index">Customers</a>
 
                 <a class="nav-links" asp-area="" asp-page="/Bookings/Index">Bookings</a> *@

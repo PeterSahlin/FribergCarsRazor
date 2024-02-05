@@ -16,10 +16,28 @@ namespace FribergCarsRazor.Pages
         {
 
         }
-    
-    
-    
-    
-    
+
+        public IActionResult OnGetLogOut()
+        {
+
+            if (Request.Cookies["User"] != null)
+            {
+                Response.Cookies.Delete("User");
+                return RedirectToPage("/LoggedOut");
+                
+            }
+            else if (Request.Cookies["Admin"] != null)
+            {
+                Response.Cookies.Delete("Admin");
+               return RedirectToPage("/LoggedOut");
+                
+            }
+            return Page();
+
+        }
+
+
+
+
     }
 }
