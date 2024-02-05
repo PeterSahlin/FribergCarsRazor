@@ -40,6 +40,6 @@
     <form method="post">
         <input type="hidden" asp-for="Booking.BookingId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index" asp-route-id="@GetCustomerIdFromCookie()">Back to List</a>
+        <a asp-page="./BookingIndex" asp-route-id="@GetCustomerIdFromCookie()">Back to List</a>
     </form>
 </div>

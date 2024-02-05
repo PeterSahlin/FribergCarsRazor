@@ -34,14 +34,6 @@
         <dt class="col-sm-2">
             @Html.DisplayFor(model => model.Customer.Password)
         </dt>
-
-
-
-
-
-
-
-
     </dl>
 
 
@@ -51,8 +43,8 @@
 
 
 
-                <a asp-page="./Create" asp-route-id="@Model.Customer?.CustomerId">Book car</a> |
-                <a asp-page="./Index" asp-route-id="@Model.Customer?.CustomerId">List bookings</a> |
+                <a asp-page="./BookingCreate" asp-route-id="@Model.Customer?.CustomerId">Book car</a> |
+                <a asp-page="./BookingIndex" asp-route-id="@Model.Customer?.CustomerId">List bookings</a> |
                
              </td>
         </tr>

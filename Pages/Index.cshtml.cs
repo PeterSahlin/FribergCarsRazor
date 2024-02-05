@@ -33,7 +33,6 @@ namespace FribergCarsRazor.Pages
                 
             }
             return Page();
-
         }
 
 
