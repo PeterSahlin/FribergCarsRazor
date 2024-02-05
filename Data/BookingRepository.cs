@@ -53,6 +53,16 @@ namespace FribergCarsRazor.Data
                 .FirstOrDefault(b => b.Customer.CustomerId == customerId);
         }
 
+        public IEnumerable<Booking> GetCustomerBookingsList()
+        {
+           
+                return applicationDbContext.Bookings
+                    .Include(b => b.Customer)
+                    .Include(b => b.Car)
+                    .OrderBy(b=>b.Customer.CustomerId);
+            
+        }
+
         public IEnumerable<Booking> GetCustomerBookingsByCustomerId(int customerId)
         {
             return applicationDbContext.Bookings

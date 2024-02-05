@@ -16,6 +16,9 @@
         public Booking GetBookingByCustomerId(int customerId);
 
         public IEnumerable<Booking> GetCustomerBookingsByCustomerId(int customerId);
+
+        public IEnumerable<Booking> GetCustomerBookingsList();
+
     }
 
 

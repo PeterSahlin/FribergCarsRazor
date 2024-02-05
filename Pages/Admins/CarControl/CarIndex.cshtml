@@ -55,9 +55,9 @@
                 @* @Html.DisplayFor(modelItem => item.Image) *@
             </td>
             <td>
-                    <a asp-page="./CarEdit" asp-route-id="@item.CarId">Edit</a> |
-                    <a asp-page="./CarDetails" asp-route-id="@item.CarId">Details</a> |
-                    <a asp-page="./CarDelete" asp-route-id="@item.CarId">Delete</a>
+                    <a asp-page="./CarEdit" class="link-button" asp-route-id="@item.CarId">Edit</a> |
+                    <a asp-page="./CarDetails" class="link-button" asp-route-id="@item.CarId">Details</a> |
+                    <a asp-page="./CarDelete" class="link-button" asp-route-id="@item.CarId">Delete</a>
             </td>
         </tr>
 }
