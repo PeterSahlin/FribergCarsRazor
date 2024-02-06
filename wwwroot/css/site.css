@@ -106,8 +106,8 @@ body {
         float:right;
     }
 
-.page-header {
-}
+/*.page-header {
+}*/
 
 
 .link-button {
@@ -116,6 +116,7 @@ body {
     background-color: var(--logoSilver);
     color: var(--black);
     border-style: solid;
+    border-width:2px;
     border-color: var(--black);
     border-radius: 10%;
     text-decoration: none;
@@ -238,6 +239,19 @@ table {
     margin-right: auto;
     border-collapse: collapse;
     width: 90%;
+    background-color: var(--logoWhite);
+    margin-bottom: 2%;
+    color: var(--black);
+}
+
+.car-table {
+    border-style: solid;
+    border-color: var(--black);
+    border-width: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    width: 60%;
     background-color: var(--logoWhite);
     margin-bottom: 2%;
     color: var(--black);

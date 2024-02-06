@@ -9,10 +9,13 @@
 
 <h4>Browse our selection of fancy cars below.</h4>
 
-
+@{
+    var customer = HttpContext.Request.Cookies["User"];
+    var admin = HttpContext.Request.Cookies["Admin"];
+}
    
  
-<table class="table">
+<table class="car-table">
     <thead>
         <tr>
             <th>
@@ -44,10 +47,22 @@
             </td>
             <td>
                 <img src="@item.Image" style="max-width:200px"/>
-                @* @Html.DisplayFor(modelItem => item.Image) *@
+                
             </td>
+
+
             <td>
-                <a asp-page="/Bookings/CustomerLogin" asp-route-id="@item.CarId">Book car</a> 
+                    @{
+                        if (customer == null && admin == null)
+                        {
+                            <a asp-page="/Bookings/CustomerLogin" asp-route-id="@item.CarId">Book car</a>
+                        }
+                        else
+                        {
+                            <a asp-page="/Bookings/BookingCreate" asp-route-id="@item.CarId">Book car</a>
+                        }
+                    }
+                
            
             </td>
         </tr>

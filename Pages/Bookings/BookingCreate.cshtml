@@ -5,10 +5,12 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Book car</h1>
 
-<h4>Booking</h4>
+<h4>Choose car and desired date below.</h4>
 <hr />
+
+
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -18,9 +20,7 @@
             <select name="Booking.Car.CarId" asp-for="Booking.Car.CarId" asp-items="@(new SelectList(Model.CarList, "CarId", "CarName" ))">
                 <option value="">Select car</option>
                 <option></option>
-
             </select>
-
             <div class="form-group">
                 <label asp-for="Booking.StartDate" class="control-label"></label>
                 <input asp-for="Booking.StartDate" class="form-control" />
