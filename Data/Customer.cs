@@ -12,6 +12,6 @@
         public required string Password { get; set; }
 
 
-        //public ICollection<Booking> CustomerBookings { get; set; }
+    
     }
 }

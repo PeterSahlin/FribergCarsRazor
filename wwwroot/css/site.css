@@ -109,18 +109,19 @@ body {
 .page-header {
 }
 
+
 .link-button {
     height: auto;
     width: auto;
-    border-style: solid;
-    border-color: var(--black);
     background-color: var(--logoSilver);
     color: var(--black);
+    border-style: solid;
+    border-color: var(--black);
+    border-radius: 10%;
     text-decoration: none;
     font-size: medium;
     text-align: center;
     padding: 0.4%;
-    border-radius: 10%;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -252,7 +253,7 @@ table {
         max-width: 200px; 
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis; /* Visar ellipsis (...) om innehållet är för långt för att visas */
+        text-overflow: ellipsis;
     }
 
     table td {
@@ -270,7 +271,7 @@ table {
         max-width: 400px;
         white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis; /* Visar ellipsis (...) om innehållet är för långt för att visas */
+        text-overflow: ellipsis; 
     }
 
         /*Id*/

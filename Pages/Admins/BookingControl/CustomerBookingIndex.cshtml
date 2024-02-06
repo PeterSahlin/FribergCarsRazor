@@ -59,9 +59,8 @@
                     </td>
 
                     <td>
-                        <a asp-page="./CustomerBookingEdit" class="link-button" asp-route-id="@item.BookingId">Edit</a>
-                        <a asp-page="./CustomerBookingDetails" class="link-button" asp-route-id="@item.BookingId">Details</a> |
-                        <a asp-page="./Bookings/BookingDelete" class="link-button" asp-route-id="@item.BookingId">Delete</a>
+
+                        <a asp-page="./CustomerBookingDelete" class="link-button" asp-route-id="@item.BookingId">Delete</a>
                     </td>
                 </tr>
             }

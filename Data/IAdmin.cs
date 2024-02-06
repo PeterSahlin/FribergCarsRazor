@@ -12,6 +12,6 @@
         //Delete
         public void DeleteAdmin(Admin admin);
 
-        public Admin GetAdminByEmailNameAndPassword(string email, string password);
+        public Admin GetAdminByEmailAndPassword(string email, string password);
     }
 }

@@ -21,11 +21,11 @@ namespace FribergCarsRazor.Pages.Admins
 
         public Admin Admin { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(/*Admin admin*/)
+        public async Task<IActionResult> OnGetAsync()
         {
             int adminFromCookie = Convert.ToInt32(Request.Cookies["Admin"]);
             var loggedInAdmin = adminRepo.GetById(adminFromCookie);
-            //var loggedInAdmin = adminRepo.GetById(admin.AdminId);
+           
 
             /*await _context.Customers.ToListAsync();*/
             if (loggedInAdmin == null)

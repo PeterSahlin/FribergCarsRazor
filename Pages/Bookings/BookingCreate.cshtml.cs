@@ -37,11 +37,11 @@ namespace FribergCarsRazor.Pages.Bookings
         public IEnumerable<Car> CarList { get; set; }
 
 
-        public IActionResult OnGet(/*int id*/)
+        public IActionResult OnGet()
         {
             int userFromCookie = Convert.ToInt32(Request.Cookies["User"]);
             var loggedInCustomer = customerRepo.GetById(userFromCookie);
-            //var loggedInCustomer = customerRepo.GetById(id);
+            
 
             Booking.Customer = loggedInCustomer;
 
@@ -53,8 +53,7 @@ namespace FribergCarsRazor.Pages.Bookings
             //}
         }
 
-        //[BindProperty]
-        //public Booking Booking { get; set; } = default!;
+       
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync(Booking booking)                     
@@ -71,8 +70,8 @@ namespace FribergCarsRazor.Pages.Bookings
             if (!ModelState.IsValid)
             {
                 bookingRepo.CreateBooking(booking);
-                //return RedirectToPage("./CustomerLoggedIn", customer);
-                return RedirectToPage("./BookingConfirmed"/*, customer*/);
+               
+                return RedirectToPage("./BookingConfirmed");
 
             }
             else

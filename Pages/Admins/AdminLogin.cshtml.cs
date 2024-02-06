@@ -33,14 +33,11 @@ namespace FribergCarsRazor.Pages.Admins
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-            var admin = adminRepo.GetAdminByEmailNameAndPassword(Admin.Email, Admin.Password);
+            var admin = adminRepo.GetAdminByEmailAndPassword(Admin.Email, Admin.Password);
 
-            if (!ModelState.IsValid)
-            {
                 if (admin == null)
                 {
                     return Page();
-
                 }
                 else
                 {
@@ -49,9 +46,9 @@ namespace FribergCarsRazor.Pages.Admins
                     options.Expires = DateTimeOffset.UtcNow.AddMinutes(15);
                     httpContextAccessor.HttpContext.Response.Cookies.Append("Admin", adminLoggedIn, options);
                 }
-            }
+           
 
-            return RedirectToPage("./AdminLoggedIn"/*, admin*/);
+            return RedirectToPage("./AdminLoggedIn");
         }
     }
 }

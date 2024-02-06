@@ -61,7 +61,7 @@ namespace FribergCarsRazor.Pages.Bookings
 
             }
 
-            return RedirectToPage("./CustomerLoggedIn"/*, customer*/);
+            return RedirectToPage("./CustomerLoggedIn");
             //if (!ModelState.IsValid)
             //{
             //    return Page();
