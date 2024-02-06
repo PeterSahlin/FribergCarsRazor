@@ -34,19 +34,19 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Car) {
+@foreach (var car in Model.Car) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CarName)
+                @Html.DisplayFor(modelItem => car.CarName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Seats)
+                @Html.DisplayFor(modelItem => car.Seats)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                @Html.DisplayFor(modelItem => car.Price)
             </td>
             <td>
-                <img src="@item.Image" style="max-width:200px"/>
+                <img src="@car.Image" style="max-width:200px"/>
                 
             </td>
 
@@ -55,11 +55,11 @@
                     @{
                         if (customer == null && admin == null)
                         {
-                            <a asp-page="/Bookings/CustomerLogin" asp-route-id="@item.CarId">Book car</a>
+                            <a asp-page="/Bookings/CustomerLogin" asp-route-id="@car.CarId">Book car</a>
                         }
                         else
                         {
-                            <a asp-page="/Bookings/BookingCreate" asp-route-id="@item.CarId">Book car</a>
+                            <a asp-page="/Bookings/BookingCreate" asp-route-id="@car.CarId">Book car</a>
                         }
                     }
                 
