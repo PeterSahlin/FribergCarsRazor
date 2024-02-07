@@ -237,15 +237,49 @@ dl {
 
 
 
-/*.col-sm-2 {
-    text-decoration: underline;
-    display: inline;
-}*/
+    /*FORMS*/
+
+.drop-down {
+    display: inline-block;
+}
+
+    .drop-down button {
+        padding: 5%;
+    }
+
+    .drop-down a {
+        display: block;
+        color: var(--white);
+        text-decoration: none;
+        padding: 1%
+    }
+
+    .drop-down .content {
+        display: none;
+        position: absolute;
+        background-color: var(--lightblue);
+        min-width: 10%;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 5px;
+    }
+
+    .drop-down:hover .content {
+        display: block;
+    }
+
+    .drop-down a:hover {
+        background-color: var(--blue);
+    }
 
 
-/*.col-sm-10 {
-    display: inline;
-}*/
+
+
+
+
+
+
+
 /*TABLES*/
 table {
     border-style: solid;
