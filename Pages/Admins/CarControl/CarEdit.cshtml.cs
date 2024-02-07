@@ -58,3 +58,4 @@ namespace FribergCarsRazor.Pages.Admins.CarControl
         }
 
     }
+}
