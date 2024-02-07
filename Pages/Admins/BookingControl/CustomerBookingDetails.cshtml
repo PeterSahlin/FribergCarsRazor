@@ -19,7 +19,7 @@
             @Html.DisplayFor(model => model.Booking.StartDate)
         </dd>
         </div>
-        <br />
+       
         <div class="user-details">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Booking.EndDate):
@@ -44,5 +44,6 @@
     }
 
     <a asp-page="./CustomerLoggedIn" asp-route-id="@GetCustomerIdFromCookie()">Back to List</a>
+    </div>
 
 

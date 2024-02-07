@@ -29,7 +29,7 @@ namespace FribergCarsRazor.Pages.Admins.BookingControl
             }
 
             var booking = bookingRepo.GetById(id);
-                /*await _context.Bookings.FirstOrDefaultAsync(m => m.BookingId == id);*/
+               
 
             if (booking == null)
             {
@@ -50,7 +50,7 @@ namespace FribergCarsRazor.Pages.Admins.BookingControl
             }
 
             var booking = bookingRepo.GetById(id);
-            /*await _context.Bookings.FindAsync(id);*/
+          
             if (booking != null)
             {
                 Booking = booking;

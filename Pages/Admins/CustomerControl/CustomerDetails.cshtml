@@ -19,7 +19,7 @@
             @Html.DisplayFor(model => model.Customer.FirstName)
         </dd>
         </div>
-        <br />
+       
         <div class="user-details">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Customer.LastName)
@@ -28,7 +28,7 @@
             @Html.DisplayFor(model => model.Customer.LastName)
         </dd>
         </div>
-        <br />
+      
         <div class="user-details">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Customer.Email)
@@ -37,7 +37,7 @@
             @Html.DisplayFor(model => model.Customer.Email)
         </dd>
         </div>
-        <br />
+    
         <div class="user-details">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Customer.Password)
@@ -49,6 +49,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" class="link-button" asp-route-id="@Model.Customer.CustomerId">Edit</a> |
-    <a asp-page="./Index" class="link-button">Back to List</a>
+    <a asp-page="./CustomerEdit" class="link-button" asp-route-id="@Model.Customer.CustomerId">Edit</a> |
+    <a asp-page="./CustomerIndex" class="link-button">Back to List</a>
 </div>

@@ -28,7 +28,9 @@ namespace FribergCarsRazor.Data
 
         public Booking GetById(int id)
         {
-            return applicationDbContext.Bookings.FirstOrDefault(b => b.BookingId == id);
+            return applicationDbContext.Bookings
+                .Include(b => b.Customer)
+                .FirstOrDefault(b => b.BookingId == id);
         }
 
         //Edit

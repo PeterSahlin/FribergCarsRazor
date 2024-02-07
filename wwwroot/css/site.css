@@ -212,20 +212,27 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 
 .user-details {
-    display: inline-flex;
+    display: flex;
+    
 }
 
 dl {
+    margin-right: auto;
+    margin-left: auto;
+    width: 20%;
 }
 
     dl dt {
         font-weight:bold;
-        display: inline-flex;
+        /*display: flex;*/
+        padding:3px;
     }
 
     dl dd {
         margin-left: 5px;
-        display: flex;
+        /*display: flex;*/
+        padding: 3px;
+        padding-left:1px;
     }
 
 

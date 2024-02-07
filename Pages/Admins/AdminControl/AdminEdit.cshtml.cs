@@ -12,13 +12,6 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
 {
     public class EditModel : PageModel
     {
-        //private readonly FribergCarsRazor.ApplicationDbContext _context;
-
-        //public EditModel(FribergCarsRazor.ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly IAdmin adminRepo;
 
         public EditModel(IAdmin adminRepo)
@@ -29,7 +22,7 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
         [BindProperty]
         public Admin Admin { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync()
+        public IActionResult OnGet()
         {
             int adminFromCookie = Convert.ToInt32(Request.Cookies["Admin"]);
             
@@ -39,7 +32,6 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
                 return NotFound();
             }
 
-            //var admin =  await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);
             var admin = adminRepo.GetById(adminFromCookie);
             if (admin == null)
             {
@@ -51,7 +43,7 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
@@ -61,7 +53,7 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
             adminRepo.EditAdmin(Admin);
             
 
-            return RedirectToPage("./AdminIndex");
+            return RedirectToPage("../AdminLoggedIn");
         }
 
        
