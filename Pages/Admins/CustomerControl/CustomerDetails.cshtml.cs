@@ -11,13 +11,6 @@ namespace FribergCarsRazor.Pages.Admins.CustomerControl
 {
     public class DetailsModel : PageModel
     {
-        //private readonly ApplicationDbContext _context;
-
-        //public DetailsModel(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly ICustomer customerRepo;
 
         public DetailsModel(ICustomer customerRepo)
@@ -33,7 +26,6 @@ namespace FribergCarsRazor.Pages.Admins.CustomerControl
                 return NotFound();
             }
 
-            //var customer = await _context.Customers.FirstOrDefaultAsync(m => m.CustomerId == id);
             var customer = customerRepo.GetById(id);
             if (customer == null)
             {

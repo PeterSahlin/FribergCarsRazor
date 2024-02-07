@@ -13,13 +13,6 @@ namespace FribergCarsRazor.Pages.Admins.CustomerControl
     public class EditModel : PageModel
     {
 
-        //private readonly ApplicationDbContext _context;
-
-        //public EditModel(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly ICustomer customerRepo;
         public EditModel(ICustomer customerRepo)
         {
@@ -42,7 +35,10 @@ namespace FribergCarsRazor.Pages.Admins.CustomerControl
             {
                 return NotFound();
             }
-            Customer = customer;
+            else
+            {
+                Customer = customer;
+            }
             return Page();
         }
 
@@ -55,30 +51,9 @@ namespace FribergCarsRazor.Pages.Admins.CustomerControl
                 return Page();
             }
             customerRepo.EditCustomer(Customer);
-            //_context.Attach(Customer).State = EntityState.Modified;
 
-            //try
-            //{
-            //    await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!CustomerExists(Customer.CustomerId))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
 
             return RedirectToPage("./CustomerIndex");
         }
-
-        //private bool CustomerExists(int id)
-        //{
-        //    return _context.Customers.Any(e => e.CustomerId == id);
-        //}
     }
 }

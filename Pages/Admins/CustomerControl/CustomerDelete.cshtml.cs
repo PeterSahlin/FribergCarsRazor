@@ -11,13 +11,6 @@ namespace FribergCarsRazor.Pages.Admins.CustomerControl
 {
     public class DeleteModel : PageModel
     {
-        //private readonly ApplicationDbContext _context;
-
-        //public DeleteModel(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly ICustomer customerRepo;
 
         public DeleteModel(ICustomer customerRepo)
@@ -62,7 +55,6 @@ namespace FribergCarsRazor.Pages.Admins.CustomerControl
             {
                 Customer = customer;
                 customerRepo.DeleteCustomer(customer);
-                //_context.Customers.Remove(Customer);
                 //await _context.SaveChangesAsync();
             }
 

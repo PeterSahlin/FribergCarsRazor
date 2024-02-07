@@ -12,13 +12,7 @@ namespace FribergCarsRazor.Pages.Bookings
 {
     public class DeleteModel : PageModel
     {
-        //private readonly FribergCarsRazor.ApplicationDbContext _context;
-
-        //public DeleteModel(FribergCarsRazor.ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
+        
         private readonly IBooking bookingRepo;
         public DeleteModel(IBooking bookingRepo)
         {
@@ -62,7 +56,7 @@ namespace FribergCarsRazor.Pages.Bookings
             {
                 Booking = booking;
                 bookingRepo.DeleteBooking(booking);
-                //_context.Bookings.Remove(Booking);
+                
                 //await _context.SaveChangesAsync();
             }
 

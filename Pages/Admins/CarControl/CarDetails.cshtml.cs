@@ -11,13 +11,6 @@ namespace FribergCarsRazor.Pages.Admins.CarControl
 {
     public class DetailsModel : PageModel
     {
-        //private readonly ApplicationDbContext _context;
-
-        //public DetailsModel(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly ICar carRepo;
 
         public DetailsModel(ICar carRepo)

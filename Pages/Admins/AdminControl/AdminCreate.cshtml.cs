@@ -11,12 +11,7 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
 {
     public class CreateModel : PageModel
     {
-        //private readonly FribergCarsRazor.ApplicationDbContext _context;
-
-        //public CreateModel(FribergCarsRazor.ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
+       
 
         private readonly IAdmin adminRepo;
 

@@ -59,30 +59,11 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
             }
 
             adminRepo.EditAdmin(Admin);
-            //_context.Attach(Admin).State = EntityState.Modified;
-
-            //try
-            //{
-            //    await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!AdminExists(Admin.AdminId))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
+            
 
             return RedirectToPage("./AdminIndex");
         }
 
-        //private bool AdminExists(int id)
-        //{
-        //    return _context.Admins.Any(e => e.AdminId == id);
-        //}
+       
     }
 }

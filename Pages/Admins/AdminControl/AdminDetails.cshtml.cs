@@ -11,13 +11,6 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
 {
     public class DetailsModel : PageModel
     {
-        //private readonly FribergCarsRazor.ApplicationDbContext _context;
-
-        //public DetailsModel(FribergCarsRazor.ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly IAdmin adminRepo;
 
         public DetailsModel(IAdmin adminRepo)
@@ -34,7 +27,7 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
                 return NotFound();
             }
 
-            //var admin = await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);
+            //var admin = await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);              //Fixa detta?
             var admin = adminRepo.GetById(id);
             if (admin == null)
             {

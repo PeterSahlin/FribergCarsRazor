@@ -12,14 +12,6 @@ namespace FribergCarsRazor.Pages.Bookings
 {
     public class IndexModel : PageModel
     {
-
-        //private readonly ApplicationDbContext _context;
-
-        //public IndexModel(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly IBooking bookingRepo;
         public IndexModel(IBooking bookingRepo)
         {
@@ -27,9 +19,9 @@ namespace FribergCarsRazor.Pages.Bookings
         }
 
         [BindProperty]
-        public IList<Booking> Booking { get;set; } = default!;
+        public IList<Booking> Booking { get;set; } = default!;                  //Ienumerable?
 
-        public async Task OnGetAsync(/*int id*/)
+        public async Task OnGetAsync()
         {
             int userFromCookie = Convert.ToInt32(Request.Cookies["User"]);
 

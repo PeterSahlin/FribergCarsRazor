@@ -11,13 +11,6 @@ namespace FribergCarsRazor.Pages.Admins.CarControl
 {
     public class DeleteModel : PageModel
     {
-        //private readonly ApplicationDbContext _context;
-
-        //public DeleteModel(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly ICar carRepo;
 
         public DeleteModel(ICar carRepo)
@@ -57,17 +50,14 @@ namespace FribergCarsRazor.Pages.Admins.CarControl
                 return NotFound();
             }
 
-            //var car = await _context.Cars.FindAsync(id);
             var car = carRepo.GetById(id);
 
             if (car != null)
             {
                 Car = car;
                 carRepo.DeleteCar(car);
-                //_context.Cars.Remove(Car);
                 //await _context.SaveChangesAsync();
             }
-
             return RedirectToPage("./CarIndex");
         }
     }

@@ -12,13 +12,6 @@ namespace FribergCarsRazor.Pages.Admins.BookingControl
 {
     public class DeleteModel : PageModel
     {
-        //private readonly FribergCarsRazor.ApplicationDbContext _context;
-
-        //public DeleteModel(FribergCarsRazor.ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly IBooking bookingRepo;
         public DeleteModel(IBooking bookingRepo)
         {

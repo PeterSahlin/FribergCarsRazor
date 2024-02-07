@@ -11,13 +11,6 @@ namespace FribergCarsRazor.Pages.Admins.BookingControl
 {
     public class DetailsModel : PageModel
     {
-        //private readonly FribergCarsRazor.ApplicationDbContext _context;
-
-        //public DetailsModel(FribergCarsRazor.ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly IBooking bookingRepo;
         public DetailsModel(IBooking bookingRepo)
         {

@@ -11,13 +11,6 @@ namespace FribergCarsRazor.Pages.Admins.CustomerControl
 {
     public class CreateModel : PageModel
     {
-        //private readonly ApplicationDbContext _context;
-
-        //public CreateModel(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly ICustomer customerRepo;
         public CreateModel(ICustomer customerRepo)
         {
@@ -41,7 +34,6 @@ namespace FribergCarsRazor.Pages.Admins.CustomerControl
             }
 
             customerRepo.CreateCustomer(Customer);
-            //_context.Customers.Add(Customer);
             //await _context.SaveChangesAsync();
 
             return RedirectToPage("./CustomerIndex");

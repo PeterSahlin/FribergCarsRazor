@@ -12,12 +12,6 @@ namespace FribergCarsRazor.Pages.Admins.CarControl
 {
     public class EditModel : PageModel
     {
-        //private readonly ApplicationDbContext _context;
-
-        //public EditModel(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
 
         private readonly ICar carRepo;
 
@@ -42,7 +36,10 @@ namespace FribergCarsRazor.Pages.Admins.CarControl
             {
                 return NotFound();
             }
-            Car = car;
+            else
+            {
+                Car = car;
+            }
             return Page();
         }
 
@@ -56,30 +53,8 @@ namespace FribergCarsRazor.Pages.Admins.CarControl
             }
 
             carRepo.EditCar(Car);
-            //_context.Attach(Car).State = EntityState.Modified;
-
-            //try
-            //{
-            //    await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!CarExists(Car.CarId))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
 
             return RedirectToPage("./CarIndex");
         }
 
-        //private bool CarExists(int id)
-        //{
-        //    return _context.Cars.Any(e => e.CarId == id);
-        //}
     }
-}

@@ -12,13 +12,6 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
 {
     public class DeleteModel : PageModel
     {
-        //private readonly FribergCarsRazor.ApplicationDbContext _context;
-
-        //public DeleteModel(FribergCarsRazor.ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly IAdmin adminRepo;
 
         public DeleteModel(IAdmin adminRepo)
@@ -36,7 +29,6 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
                 return NotFound();
             }
 
-            //var admin = await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);
             var admin = adminRepo.GetById(id);
 
             if (admin == null)
@@ -57,14 +49,11 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
                 return NotFound();
             }
 
-            //var admin = await _context.Admins.FindAsync(id);
             var admin = adminRepo.GetById(id);
 
             if (admin != null)
             {
                 Admin = admin;
-                //_context.Admins.Remove(Admin);
-                //await _context.SaveChangesAsync();
                 adminRepo.DeleteAdmin(admin);
             }
 

@@ -11,13 +11,6 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
 {
     public class IndexModel : PageModel
     {
-        //private readonly ApplicationDbContext _context;
-
-        //public IndexModel(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly IAdmin adminRepo;
 
         public IndexModel(IAdmin adminRepo)

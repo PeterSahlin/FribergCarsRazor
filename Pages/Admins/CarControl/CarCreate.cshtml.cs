@@ -11,13 +11,6 @@ namespace FribergCarsRazor.Pages.Admins.CarControl
 {
     public class CreateModel : PageModel
     {
-        //private readonly ApplicationDbContext _context;
-
-        //public CreateModel(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly ICar carRepo;
 
         public CreateModel(ICar carRepo)
@@ -41,7 +34,7 @@ namespace FribergCarsRazor.Pages.Admins.CarControl
             }
 
             carRepo.CreateCar(Car);
-            //_context.Cars.Add(Car);
+          
             //await _context.SaveChangesAsync();
 
             return RedirectToPage("./CarIndex");

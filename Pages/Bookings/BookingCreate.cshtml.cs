@@ -12,14 +12,6 @@ namespace FribergCarsRazor.Pages.Bookings
 {
     public class CreateModel : PageModel
     {
-        //private readonly ApplicationDbContext _context;
-
-        //public CreateModel(ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
-       
         private readonly ICustomer customerRepo;
         private readonly ICar carRepo;
         private readonly IBooking bookingRepo;
@@ -42,25 +34,18 @@ namespace FribergCarsRazor.Pages.Bookings
             int userFromCookie = Convert.ToInt32(Request.Cookies["User"]);
             var loggedInCustomer = customerRepo.GetById(userFromCookie);
             
-
             Booking.Customer = loggedInCustomer;
 
             CarList = carRepo.GetAll();
 
-
             return Page();
-
-            //}
         }
 
-       
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync(Booking booking)                     
         {
             int userFromCookie = Convert.ToInt32(Request.Cookies["User"]);
-            
-
             var customer = customerRepo.GetById(userFromCookie);          
             booking.Customer = customer;
 
@@ -72,14 +57,11 @@ namespace FribergCarsRazor.Pages.Bookings
                 bookingRepo.CreateBooking(booking);
                
                 return RedirectToPage("./BookingConfirmed");
-
             }
             else
             {
                 return Page();
             }
-           
-
         }
     }
 }
