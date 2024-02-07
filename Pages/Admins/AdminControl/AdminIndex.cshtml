@@ -8,8 +8,10 @@
 <h1 class="page-header">Administrators</h1>
 
 <form>
-    <button asp-page="Create" type="submit" class="standard-button standard-button-color">Add new Admin</button>
+    <button asp-page="AdminCreate" type="submit" class="link-button standard-button-color">Add new Admin</button>
+    <a asp-page="../AdminLoggedIn" class="link-button">Go back</a>
 </form>
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -32,9 +34,9 @@
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                <a asp-page="./AdminEdit" asp-route-id="@item.AdminId">Edit</a> |
-                    <a asp-page="./AdminDetails" asp-route-id="@item.AdminId">Details</a> |
-                    <a asp-page="./AdminDelete" asp-route-id="@item.AdminId">Delete</a>
+                <a asp-page="./AdminEdit" class="link-button" asp-route-id="@item.AdminId">Edit</a> |
+                    <a asp-page="./AdminDetails" class="link-button" asp-route-id="@item.AdminId">Details</a> |
+                    <a asp-page="./AdminDelete" class="link-button" asp-route-id="@item.AdminId">Delete</a>
             </td>
         </tr>
 }

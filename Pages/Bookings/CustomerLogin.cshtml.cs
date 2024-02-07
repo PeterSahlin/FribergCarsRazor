@@ -12,13 +12,6 @@ namespace FribergCarsRazor.Pages.Bookings
 {
     public class LogintestModel : PageModel
     {
-        //private readonly FribergCarsRazor.ApplicationDbContext _context;
-
-        //public LogintestModel(FribergCarsRazor.ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly ICustomer customerRepo;
         private readonly IHttpContextAccessor httpContextAccessor;
 

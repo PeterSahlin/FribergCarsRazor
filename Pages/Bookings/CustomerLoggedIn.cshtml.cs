@@ -12,12 +12,7 @@ namespace FribergCarsRazor.Pages.Bookings
 {
     public class CustomerLoggedInModel : PageModel
     {
-        //private readonly FribergCarsRazor.ApplicationDbContext _context;
-
-        //public CustomerLoggedInModel(FribergCarsRazor.ApplicationDbContext context)
-        //{
-        //    _context = context;
-        //}
+       
         private readonly ICustomer customerRepo;
         
 
@@ -28,7 +23,7 @@ namespace FribergCarsRazor.Pages.Bookings
 
         public Customer Customer { get;set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(/*Customer customer*/)
+        public async Task<IActionResult> OnGetAsync()
         {
             int userFromCookie= Convert.ToInt32(Request.Cookies["User"]);
             var loggedInCustomer = customerRepo.GetById(userFromCookie);
