@@ -28,7 +28,6 @@ namespace FribergCarsRazor.Pages.Bookings
             int userFromCookie= Convert.ToInt32(Request.Cookies["User"]);
             var loggedInCustomer = customerRepo.GetById(userFromCookie);
 
-            /*await _context.Customers.ToListAsync();*/
             if (loggedInCustomer == null)
             {
                 return NotFound();

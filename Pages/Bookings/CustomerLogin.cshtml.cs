@@ -36,8 +36,7 @@ namespace FribergCarsRazor.Pages.Bookings
         {
             var customer = customerRepo.GetUserByUserNameAndPassword(Customer.Email, Customer.Password);
 
-            if (ModelState.IsValid)
-            {
+          
                 if (customer == null)
                 {
                    
@@ -52,18 +51,10 @@ namespace FribergCarsRazor.Pages.Bookings
 
                 }
 
-            }
+  
 
             return RedirectToPage("./CustomerLoggedIn");
-            //if (!ModelState.IsValid)
-            //{
-            //    return Page();
-            //}
-
-            //_context.Customers.Add(Customer);
-            //await _context.SaveChangesAsync();
-
-            //return RedirectToPage("./Index");
+          
         }
     }
 }
