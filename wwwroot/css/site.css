@@ -1,35 +1,15 @@
-/*html {
-  font-size: 14px;
-}
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}*/
 
 :root {
     --logoBlueBlack: #101f24;
     --logoOrange: #FB8B24;
     --logoYellow: #f8c43d;
     --logoWhite: #fefdff;
-    --logoSilver: #9aa5ab;
+    --logoSilver: #E5E1DA;
     --black: #000000;
+    --tableGray: #EEEEEE;
     /* Buttons */
-    --green: #006137;
+    --green: #A3B763;
     --greenAlt: #01814a;
     --red: #951D00;
     --redAlt: #bb2500;
@@ -102,9 +82,9 @@ body {
         color: var(--black);
     }
 
-    #logout{
-        float:right;
-    }
+#logout {
+    float: right;
+}
 
 /*.page-header {
 }*/
@@ -116,7 +96,7 @@ body {
     background-color: var(--logoSilver);
     color: var(--black);
     border-style: solid;
-    border-width:2px;
+    border-width: 2px;
     border-color: var(--black);
     border-radius: 10%;
     text-decoration: none;
@@ -131,7 +111,6 @@ body {
     .link-button:hover {
         background-color: var(--logoYellow);
         color: var(--black);
-        
     }
 
 .content-box {
@@ -142,8 +121,10 @@ body {
     margin-left: auto;
     margin-top: 2%;
     padding: 1%;
-    width:80%;
+    width: 80%;
 }
+
+
 
 .site-footer {
     background-color: var(--logoSilver);
@@ -196,7 +177,7 @@ body {
 }
 
 .positive-button-color:hover {
-    background-color: var(--greenAlt);
+    background-color: var(--logoYellow);
 }
 
 
@@ -229,8 +210,36 @@ input[type="text"], input[type="email"], input[type="password"] {
         outline: none;
     }
 
-/*TABLES*/
 
+.user-details {
+    display: inline-flex;
+}
+
+dl {
+}
+
+    dl dt {
+        font-weight:bold;
+        display: inline-flex;
+    }
+
+    dl dd {
+        margin-left: 5px;
+        display: flex;
+    }
+
+
+
+/*.col-sm-2 {
+    text-decoration: underline;
+    display: inline;
+}*/
+
+
+/*.col-sm-10 {
+    display: inline;
+}*/
+/*TABLES*/
 table {
     border-style: solid;
     border-color: var(--black);
@@ -242,6 +251,10 @@ table {
     background-color: var(--logoWhite);
     margin-bottom: 2%;
     color: var(--black);
+}
+
+.table tr:nth-child(even) {
+    background-color: var(--tableGray);
 }
 
 .car-table {
@@ -257,65 +270,65 @@ table {
     color: var(--black);
 }
 
-    table th {
-        background-color: var(--logoSilver);
-        height: 2%;
-        border-bottom: 1px solid var(--logoBlueBlack);
-        border-right: 1px solid var(--logoBlueBlack);
-        border-width: 1px;
-        text-align: center;
-        max-width: 200px; 
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+table th {
+    background-color: var(--logoSilver);
+    height: 2%;
+    border-bottom: 1px solid var(--logoBlueBlack);
+    border-right: 1px solid var(--logoBlueBlack);
+    border-width: 1px;
+    text-align: center;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-    table td {
-        border-style: solid;
-        border-color: var(--black);
-        border-width: 1px;
-        border-bottom: 1px solid var(--black);
-        text-align: center;
-        word-wrap: break-word;
-        padding-top: 1%;
-        padding-bottom: 1%;
-        padding-right: 1%;
-        padding-left: 1%;
-        overflow: hidden;
-        max-width: 400px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis; 
-    }
+table td {
+    border-style: solid;
+    border-color: var(--black);
+    border-width: 1px;
+    border-bottom: 1px solid var(--black);
+    text-align: center;
+    word-wrap: break-word;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-right: 1%;
+    padding-left: 1%;
+    overflow: hidden;
+    max-width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-        /*Id*/
-        /*table td:first-child {
+    /*Id*/
+    /*table td:first-child {
             min-width: 50px;
         }*/
 
-        /*CarName*/
-        table td:first-child(2) {
-            min-width: 100px;
-        }
-        /*Seats*/
-        table td:nth-child(2) {
-            min-width: 30px;
-            /*text-align: center;*/
-        }
-        /*Price*/
-        table td:nth-child(3) {
-            min-width: 50px;
-            /* text-align: center;*/
-        }
-        /*Image*/
-        /*  table td:nth-child(4) {
+    /*CarName*/
+    table td:first-child(2) {
+        min-width: 100px;
+    }
+    /*Seats*/
+    table td:nth-child(2) {
+        min-width: 30px;
+        /*text-align: center;*/
+    }
+    /*Price*/
+    table td:nth-child(3) {
+        min-width: 50px;
+        /* text-align: center;*/
+    }
+    /*Image*/
+    /*  table td:nth-child(4) {
             text-align:center;
         }*/
-        /*Edit*/
-        table td:nth-child(5) {
-            min-width: 20px;
-            /*text-align:center;*/
-        }
+    /*Edit*/
+    table td:nth-child(5) {
+        min-width: 20px;
+        /*text-align:center;*/
+    }
 
 /*.top-of-table-buttons {
     width: 65%;
