@@ -14,7 +14,6 @@ namespace FribergCarsRazor.Pages.Bookings
     {
        
         private readonly ICustomer customerRepo;
-        
 
         public CustomerLoggedInModel(ICustomer customerRepo)
         {
@@ -37,16 +36,12 @@ namespace FribergCarsRazor.Pages.Bookings
                 Customer = loggedInCustomer;
             }
             return Page();
-
-
-
         }
 
         public async Task<IActionResult> OnGetAfterBooking(int id)
         {
             var loggedInCustomer = customerRepo.GetById(id);
 
-            /*await _context.Customers.ToListAsync();*/
             if (loggedInCustomer == null)
             {
                 return NotFound();
@@ -56,13 +51,6 @@ namespace FribergCarsRazor.Pages.Bookings
                 Customer = loggedInCustomer;
             }
             return Page();
-
-
-
         }
-
-
-
-
     }
 }

@@ -12,26 +12,21 @@ namespace FribergCarsRazor.Pages.Bookings
 {
     public class BookingConfirmedModel : PageModel
     {
-        
+
         private readonly IBooking bookingRepo;
 
         public BookingConfirmedModel(IBooking bookingRepo)
         {
-           
+
             this.bookingRepo = bookingRepo;
         }
 
-        public Booking Booking { get;set; } = default!;
+        public Booking Booking { get; set; } = default!;
 
-        public async Task OnGetAsync(/*Customer customer*/)
+        public async Task OnGetAsync()
         {
             int userFromCookie = Convert.ToInt32(Request.Cookies["User"]);
-            
-
-            Booking =bookingRepo.GetBookingByCustomerId(userFromCookie);
-
-
-            
+            Booking = bookingRepo.GetBookingByCustomerId(userFromCookie);
         }
     }
 }

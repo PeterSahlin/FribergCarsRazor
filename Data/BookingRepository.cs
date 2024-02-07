@@ -63,7 +63,6 @@ namespace FribergCarsRazor.Data
                     .Include(b => b.Customer)
                     .Include(b => b.Car)
                     .OrderBy(b=>b.Customer.CustomerId);
-            
         }
 
         public IEnumerable<Booking> GetCustomerBookingsByCustomerId(int customerId)
@@ -73,6 +72,5 @@ namespace FribergCarsRazor.Data
                 .Include(b => b.Car)
                 .Where(b => b.Customer.CustomerId == customerId);
         }
-
     }
 }
