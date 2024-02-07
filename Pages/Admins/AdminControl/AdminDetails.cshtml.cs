@@ -20,14 +20,14 @@ namespace FribergCarsRazor.Pages.Admins.AdminControl
 
         public Admin Admin { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int id)
+        public IActionResult OnGet(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            //var admin = await _context.Admins.FirstOrDefaultAsync(m => m.AdminId == id);              //Fixa detta?
+            
             var admin = adminRepo.GetById(id);
             if (admin == null)
             {

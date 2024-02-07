@@ -10,48 +10,65 @@
 <div class="content-box">
     <hr />
     <dl class="row">
+        <div class="user-details">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Booking.BookingId)
+            @Html.DisplayNameFor(model => model.Booking.BookingId):
         </dt>
-        <dt class="col-sm-2">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Booking.BookingId)
-        </dt>
+        </dd>
+        </div>
+        <br />
+        <div class="user-details">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Booking.Customer.FirstName)
+            @Html.DisplayNameFor(model => model.Booking.Customer.FirstName):
         </dt>
-        <dt class="col-sm-2">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Booking.Customer.FirstName)
-        </dt>
+        </dd>
+        </div>
+        <br />
+        <div class="user-details">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Booking.Customer.LastName)
+            @Html.DisplayNameFor(model => model.Booking.Customer.LastName):
         </dt>
-        <dt class="col-sm-2">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Booking.Customer.LastName)
-        </dt>
+        </dd>
+        </div>
+        <br />
+        <div class="user-details">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Booking.Car.CarName)
+            @Html.DisplayNameFor(model => model.Booking.Car.CarName):
         </dt>
-        <dt class="col-sm-2">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Booking.Car.CarName)
-        </dt>
+        </dd>
+        </div>
+        <br />
+        <div class="user-details">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Booking.StartDate)
+            @Html.DisplayNameFor(model => model.Booking.StartDate):
         </dt>
-        <dt class="col-sm-2">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Booking.StartDate)
-        </dt>
+        </dd>
+        </div>
+        <br />
+        <div class="user-details">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Booking.EndDate)
+            @Html.DisplayNameFor(model => model.Booking.EndDate):
         </dt>
-        <dt class="col-sm-2">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Booking.EndDate)
-        </dt>
+        </dd>
+        </div>
 
 
     </dl>
 
 
-    <a asp-page="./CustomerLoggedIn" asp-page-handler="AfterBooking" asp-route-id="@Model.Booking.Customer.CustomerId">Return to my page</a>
+    <a asp-page="./CustomerLoggedIn" class="link-button" asp-page-handler="AfterBooking" asp-route-id="@Model.Booking.Customer.CustomerId">Return to my page</a>
 
 </div>
 
