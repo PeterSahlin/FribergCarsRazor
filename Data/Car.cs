@@ -17,7 +17,7 @@ namespace FribergCarsRazor.Data
 
         [Display(Name = "Price per day")]
         [Required]
-        [RegularExpression(@"^\d+$", ErrorMessage = "Please enter price using numbers only.")]
+        [RegularExpression(@"^\d{3,}$", ErrorMessage = "Please enter price of at least 3 numbers.")]
         [DataType(DataType.Currency)]
         [DisplayFormat(DataFormatString = "{0:C0}")]
         public int Price { get; set; }

@@ -8,11 +8,7 @@
     --logoSilver: #E5E1DA;
     --black: #000000;
     --tableGray: #EEEEEE;
-    /* Buttons */
-    --green: #A3B763;
-    --greenAlt: #01814a;
-    --red: #951D00;
-    --redAlt: #bb2500;
+    
     --gray: rgb(128, 128, 128);
     --grayAlt: #434343;
 }
@@ -35,6 +31,7 @@ body {
 
     .main-header h1 {
         color: var(--logoWhite);
+        font-style:italic;
         margin-left: 2%;
         font-size: 3.5em;
     }
@@ -103,6 +100,7 @@ body {
     cursor: pointer;
     display: inline-flex;
     align-items: center;
+
 }
 
     .link-button:hover {
@@ -139,42 +137,6 @@ body {
     align-items: center;
 }
 
-
-/*button colors*/
-/*.standard-button-color {
-    background-color: var(--logoYellow);
-}
-
-.function-button-color {
-    background-color: var(--logoSilver);
-}
-
-.negative-button-color {
-    background-color: var(--red);
-}
-
-.positive-button-color {
-    background-color: var(--green);
-}*/
-
-/* Hover button colors */
-/*.negative-button-color:hover {
-    background-color: var(--redAlt);
-}
-
-.positive-button-color:hover {
-    background-color: var(--logoYellow);
-}
-
-
-.standard-button-color:hover {
-    background-color: var(--logoOrange);*/
-    /*font-weight:600;*/
-/*}
-
-.function-button-color:hover {
-    background-color: var(--gray);
-}*/
 
 /*FORMS*/
 
@@ -234,49 +196,6 @@ dl {
 }
 
 
-    /*FORMS*/
-
-.drop-down {
-    display: inline-block;
-}
-
-    .drop-down button {
-        padding: 5%;
-    }
-
-    .drop-down a {
-        display: block;
-        color: var(--white);
-        text-decoration: none;
-        padding: 1%
-    }
-
-    .drop-down .content {
-        display: none;
-        position: absolute;
-        background-color: var(--lightblue);
-        min-width: 10%;
-        border-style: solid;
-        border-width: 1px;
-        border-radius: 5px;
-    }
-
-    .drop-down:hover .content {
-        display: block;
-    }
-
-    .drop-down a:hover {
-        background-color: var(--blue);
-    }
-
-
-
-
-
-
-
-
-
 /*TABLES*/
 table {
     border-style: solid;
@@ -295,18 +214,6 @@ table {
     background-color: var(--tableGray);
 }
 
-.car-table {
-    border-style: solid;
-    border-color: var(--black);
-    border-width: 1px;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-    width: 60%;
-    background-color: var(--logoWhite);
-    margin-bottom: 2%;
-    color: var(--black);
-}
 
 table th {
     background-color: var(--logoSilver);
@@ -339,11 +246,19 @@ table td {
     text-overflow: ellipsis;
 }
 
-    /*Id*/
-    /*table td:first-child {
-            min-width: 50px;
-        }*/
-
+/*CAR TABLE FORMATTING*/
+.car-table {
+    border-style: solid;
+    border-color: var(--black);
+    border-width: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    width: 60%;
+    background-color: var(--logoWhite);
+    margin-bottom: 2%;
+    color: var(--black);
+}
     /*CarName*/
     table td:first-child(2) {
         min-width: 100px;
@@ -351,36 +266,31 @@ table td {
     /*Seats*/
     table td:nth-child(2) {
         min-width: 30px;
-        /*text-align: center;*/
+       
     }
     /*Price*/
     table td:nth-child(3) {
         min-width: 50px;
-        /* text-align: center;*/
     }
-    /*Image*/
-    /*  table td:nth-child(4) {
-            text-align:center;
-        }*/
+ 
     /*Edit*/
     table td:nth-child(5) {
         min-width: 20px;
-        /*text-align:center;*/
     }
 
-/*.top-of-table-buttons {
-    width: 65%;
-    float: left;
-}*/
 
-min-width:200px;
-/*Links*/
+min-width:200px;                                                                        /*Varför tappar jag bakgrundsfärgen på a-links-knappar när jag tar bort den här?*/
+
+
+
+/*LINKS*/
+
+
 a:link, a:visited {
     color: var(--black);
     background-color: transparent;
     text-decoration: none;
 }
-
 
 a:hover {
     color: var(--logoOrange);
