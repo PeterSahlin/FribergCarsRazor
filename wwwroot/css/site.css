@@ -86,10 +86,7 @@ body {
     float: right;
 }
 
-/*.page-header {
-}*/
-
-
+/*SITE BUTTONS*/
 .link-button {
     height: auto;
     width: auto;
@@ -113,16 +110,6 @@ body {
         color: var(--black);
     }
 
-.content-box {
-    background-color: var(--logoWhite);
-    color: var(--black);
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 2%;
-    padding: 1%;
-    width: 80%;
-}
 
 
 
@@ -140,7 +127,6 @@ body {
 .standard-button, input[type="submit"] {
     height: auto;
     width: auto;
-    /*min-width:100px;*/
     border-style: solid;
     border-color: var(--black);
     color: var(--black);
@@ -155,7 +141,7 @@ body {
 
 
 /*button colors*/
-.standard-button-color {
+/*.standard-button-color {
     background-color: var(--logoYellow);
 }
 
@@ -169,10 +155,10 @@ body {
 
 .positive-button-color {
     background-color: var(--green);
-}
+}*/
 
 /* Hover button colors */
-.negative-button-color:hover {
+/*.negative-button-color:hover {
     background-color: var(--redAlt);
 }
 
@@ -182,13 +168,13 @@ body {
 
 
 .standard-button-color:hover {
-    background-color: var(--logoOrange);
+    background-color: var(--logoOrange);*/
     /*font-weight:600;*/
-}
+/*}
 
 .function-button-color:hover {
     background-color: var(--gray);
-}
+}*/
 
 /*FORMS*/
 
@@ -235,6 +221,17 @@ dl {
         padding-left:1px;
     }
 
+    /*TEXT DISPLAY BOX*/
+.content-box {
+    background-color: var(--logoWhite);
+    color: var(--black);
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2%;
+    padding: 1%;
+    width: 80%;
+}
 
 
     /*FORMS*/
