@@ -30,6 +30,7 @@ namespace FribergCarsRazor.Data
         {
             return applicationDbContext.Bookings
                 .Include(b => b.Customer)
+                .Include(b => b.Car)
                 .FirstOrDefault(b => b.BookingId == id);
         }
 

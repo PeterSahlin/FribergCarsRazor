@@ -14,11 +14,6 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-          @*       <div>
-                <input type="hidden" asp-for="Admin.AdminId" />
-                <input type="hidden" asp-for="Admin.FirstName" />
-                <input type="hidden" asp-for="Admin.LastName" />
-            </div> *@
             <div class="form-group">
                 <label asp-for="Admin.Email" class="control-label"></label>
                 <input asp-for="Admin.Email" class="form-control" />
@@ -26,11 +21,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Admin.Password" class="control-label"></label>
-                <input asp-for="Admin.Password" class="form-control" />
+                <input asp-for="Admin.Password" class="form-control" type="password" />
                 <span asp-validation-for="Admin.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Login" class="btn btn-primary" />
+                <input type="submit" value="Login" class="link-button" />
             </div>
         </form>
     </div>
