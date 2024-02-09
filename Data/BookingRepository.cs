@@ -63,7 +63,8 @@ namespace FribergCarsRazor.Data
                 return applicationDbContext.Bookings
                     .Include(b => b.Customer)
                     .Include(b => b.Car)
-                    .OrderBy(b=>b.Customer.CustomerId);
+                    .OrderBy(b=>b.Customer.CustomerId)
+                    .ThenBy(b=>b.StartDate);
         }
 
         public IEnumerable<Booking> GetCustomerBookingsByCustomerId(int customerId)

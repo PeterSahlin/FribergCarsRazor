@@ -22,9 +22,9 @@ namespace FribergCarsRazor.Pages.Admins.BookingControl
         [BindProperty]
         public IList<Booking> Booking { get;set; } = default!;
 
-        public async Task OnGetAsync(/*int id*/)
+        public async Task OnGetAsync()
         {
-            //int userFromCookie = Convert.ToInt32(Request.Cookies["User"]);
+            
 
             Booking = bookingRepo.GetCustomerBookingsList().ToList();
             

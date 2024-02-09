@@ -8,7 +8,7 @@
 <h1>Welcome, @Html.DisplayFor(model => model.Customer.FirstName)</h1>
 <div>
     <a asp-page="./BookingCreate" class="link-button" asp-route-id="@Model.Customer?.CustomerId">Book car</a> |
-    <a asp-page="./BookingIndex" class="link-button" asp-route-id="@Model.Customer?.CustomerId">List bookings</a>
+    <a asp-page="./BookingIndex" class="link-button" asp-route-id="@Model.Customer?.CustomerId">View bookings</a>
 </div>
 <div class="content-box">
     <h4>Your info</h4>
